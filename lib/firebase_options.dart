@@ -3,6 +3,7 @@
 import 'package:firebase_core/firebase_core.dart' show FirebaseOptions;
 import 'package:flutter/foundation.dart'
     show defaultTargetPlatform, kIsWeb, TargetPlatform;
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 /// Default [FirebaseOptions] for use with your Firebase apps.
 ///
@@ -46,29 +47,30 @@ class DefaultFirebaseOptions {
     }
   }
 
-  static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyA_FewtaZ0uJe3QWQ3Gr0PW_HgUIMn14nI',
-    appId: '1:18912175:web:e77e4f3938d395084e155a',
-    messagingSenderId: '18912175',
-    projectId: 'quero-cafe-cf3c3',
-    authDomain: 'quero-cafe-cf3c3.firebaseapp.com',
-    storageBucket: 'quero-cafe-cf3c3.firebasestorage.app',
+  static  FirebaseOptions  web = FirebaseOptions(
+    apiKey: dotenv.env['WEB_API_KEY']!,
+    appId: dotenv.env['WEB_APP_ID']!,
+    messagingSenderId: dotenv.env['WEB_MESSAGING_SENDER_ID']!,
+    projectId: dotenv.env['FIREBASE_PROJECT_ID']!,
+    authDomain: dotenv.env['WEB_AUTH_DOMAIN']!,
+    storageBucket: dotenv.env['WEB_STORAGE_BUCKET']!,
+    
   );
 
-  static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyBTzJkfkQu3ZuC8zkZRIqGzR0G9aKWjBNw',
-    appId: '1:18912175:android:6d920919d6c279684e155a',
-    messagingSenderId: '18912175',
-    projectId: 'quero-cafe-cf3c3',
-    storageBucket: 'quero-cafe-cf3c3.firebasestorage.app',
+  static  FirebaseOptions android = FirebaseOptions(
+    apiKey: dotenv.env['ANDROID_API_KEY']!,
+    appId: dotenv.env['ANDROID_APP_ID']!,
+    messagingSenderId: dotenv.env['ANDROID_MESSAGING_SENDER_ID']!,
+    projectId: dotenv.env['FIREBASE_PROJECT_ID']!,
+    storageBucket: dotenv.env['ANDROID_STORAGE_BUCKET']!,
   );
 
-  static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyCj3bTFzmZG3wZieobJBXSB9fWgtcQhTHw',
-    appId: '1:18912175:ios:66ac8967d27a7cb24e155a',
-    messagingSenderId: '18912175',
-    projectId: 'quero-cafe-cf3c3',
-    storageBucket: 'quero-cafe-cf3c3.firebasestorage.app',
-    iosBundleId: 'com.example.queroCafe',
+  static  FirebaseOptions ios = FirebaseOptions(
+    apiKey: dotenv.env['IOS_API_KEY']!,
+    appId: dotenv.env['IOS_APP_ID']!,
+    messagingSenderId: dotenv.env['IOS_MESSAGING_SENDER_ID']!,
+    projectId: dotenv.env['FIREBASE_PROJECT_ID']!,
+    storageBucket: dotenv.env['IOS_STORAGE_BUCKET']!,
+    iosBundleId: dotenv.env['IOS_BUNDLE_ID']!,
   );
 }
