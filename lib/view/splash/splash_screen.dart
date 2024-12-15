@@ -11,20 +11,23 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-
   @override
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _navigateToLogin();
     });
-    
   }
-  
+
   _navigateToLogin() async {
-    await Future.delayed(Duration(seconds: 5),);
-    Navigator.pushReplacementNamed(context, '/login');
+    await Future.delayed(
+      Duration(seconds: 5),
+    );
+    if (mounted) {
+      Navigator.pushReplacementNamed(context, '/login');
+    }
   }
+
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
@@ -60,7 +63,7 @@ class _SplashScreenState extends State<SplashScreen> {
                   child: Center(
                     child: SizedBox(
                       width: screenWidth * 0.7,
-                       child: RichText(
+                      child: RichText(
                         textAlign: TextAlign.center,
                         text: TextSpan(
                           style: TextStyle(
@@ -70,14 +73,19 @@ class _SplashScreenState extends State<SplashScreen> {
                             fontSize: screenWidth * 0.08,
                           ),
                           children: [
-                            TextSpan(text: S.of(context).onboarding_description),
                             TextSpan(
-                              text: S.of(context).onboarding_description_highlight,
+                                text: S.of(context).onboarding_description),
+                            TextSpan(
+                              text: S
+                                  .of(context)
+                                  .onboarding_description_highlight,
                               style: TextStyle(
                                 color: Color(0xFFC67C4E),
                               ),
                             ),
-                            TextSpan(text: S.of(context).onboarding_description_part2),
+                            TextSpan(
+                                text:
+                                    S.of(context).onboarding_description_part2),
                           ],
                         ),
                       ),
