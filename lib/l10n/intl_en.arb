@@ -1,3 +1,5 @@
 {
-    "onboarding_description": "Experience your best moments alongside a cup of coffee."
+     "onboarding_description": "Experience your best moments alongside a cup of ",
+     "onboarding_description_highlight": "coffee",
+     "onboarding_description_part2": "."
 }

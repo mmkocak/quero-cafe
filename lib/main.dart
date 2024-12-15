@@ -27,6 +27,7 @@ class MyApp extends StatelessWidget {
       child: BlocBuilder<LocaleCubit, LocaleState>(
         builder: (context, state) {
           return MaterialApp(
+            debugShowCheckedModeBanner: false,
             locale: state.locale,
             localizationsDelegates: [
               S.delegate,
@@ -46,6 +47,7 @@ class MyApp extends StatelessWidget {
             },
             title: 'Quero Cafe',
             theme: ThemeData(
+              
               colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
               useMaterial3: true,
             ),

@@ -1,3 +1,5 @@
 {
-    "onboarding_description": "En güzel anlarınızı bir fincan kahve eşliğinde yaşayın."
+    "onboarding_description": "En güzel anlarınızı bir fincan ",
+      "onboarding_description_highlight": "kahve",
+  "onboarding_description_part2": " eşliğinde yaşayın."
 }

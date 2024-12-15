@@ -50,11 +50,31 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
-  /// `Experience your best moments alongside a cup of coffee.`
+  /// `Experience your best moments alongside a cup of `
   String get onboarding_description {
     return Intl.message(
-      'Experience your best moments alongside a cup of coffee.',
+      'Experience your best moments alongside a cup of ',
       name: 'onboarding_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `coffee`
+  String get onboarding_description_highlight {
+    return Intl.message(
+      'coffee',
+      name: 'onboarding_description_highlight',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `.`
+  String get onboarding_description_part2 {
+    return Intl.message(
+      '.',
+      name: 'onboarding_description_part2',
       desc: '',
       args: [],
     );
