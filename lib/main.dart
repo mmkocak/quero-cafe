@@ -5,6 +5,7 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:quero_cafe/core/cubit/locale/locale_cubit.dart';
 import 'package:quero_cafe/firebase_options.dart';
 import 'package:quero_cafe/generated/l10n.dart';
+import 'package:quero_cafe/view/login/login_screen.dart';
 import 'package:quero_cafe/view/splash/splash_screen.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
@@ -45,13 +46,18 @@ class MyApp extends StatelessWidget {
               }
               return state.locale;
             },
+            initialRoute: '/',
+            routes: {
+              '/': (context) => SplashScreen(),
+              '/login': (context) => LoginScreen(),
+            },
             title: 'Quero Cafe',
             theme: ThemeData(
               
               colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
               useMaterial3: true,
             ),
-            home: SplashScreen(),
+            
           );
         },
       ),

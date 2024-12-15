@@ -11,9 +11,22 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _navigateToLogin();
+    });
+    
+  }
+  
+  _navigateToLogin() async {
+    await Future.delayed(Duration(seconds: 5),);
+    Navigator.pushReplacementNamed(context, '/login');
+  }
   @override
   Widget build(BuildContext context) {
-    double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       body: Column(
