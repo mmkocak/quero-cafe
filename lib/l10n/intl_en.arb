@@ -1,5 +1,12 @@
 {
      "onboarding_description": "Experience your best moments alongside a cup of ",
      "onboarding_description_highlight": "coffee",
-     "onboarding_description_part2": "."
+     "onboarding_description_part2": ".",
+     "login": "Login",
+     "username": "Username",
+     "password": "Password",
+     "enter": "Enter",
+     "Dont_have_an_account_yet": "Don't have an account yet?",
+     "sign_up": "Sign up"
+
 }

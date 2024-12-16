@@ -1,5 +1,14 @@
 {
-    "onboarding_description": "Aproveite seus melhores momentos com um café.",
-      "onboarding_description_highlight": "café",
-  "onboarding_description_part2": "."
+  "onboarding_description": "Aproveite seus melhores momentos com um café.",
+  "onboarding_description_highlight": "café",
+  "onboarding_description_part2": ".",
+  "login": "Login",
+  "username": "Usuário",
+  "password": "Senha",
+  "enter": "Entrar",
+  "Dont_have_an_account_yet": "Ainda não possuí uma conta?",
+  "sign_up": "Cadastre-se"
+
+
+
 }

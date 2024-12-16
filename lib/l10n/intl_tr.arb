@@ -1,5 +1,12 @@
 {
-    "onboarding_description": "En güzel anlarınızı bir fincan ",
-      "onboarding_description_highlight": "kahve",
-  "onboarding_description_part2": " eşliğinde yaşayın."
+  "onboarding_description": "En güzel anlarınızı bir fincan ",
+  "onboarding_description_highlight": "kahve",
+  "onboarding_description_part2": " eşliğinde yaşayın.",
+  "login": "Giriş Yap",
+  "username": "Kullanıcı Adı",
+  "password": "Şifre",
+  "enter": "Giriş",
+ "Dont_have_an_account_yet": "Henüz bir hesabın yok mu?",
+  "sign_up": "Kayıt Ol"
+
 }
