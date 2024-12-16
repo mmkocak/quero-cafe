@@ -17,6 +17,7 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
+    const String queropng = "assets/images/quero_logo.png";
     return Scaffold(
       body: Stack(children: [
         Column(
@@ -28,7 +29,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 decoration: BoxDecoration(color: Color(0xFFF1D4B6)),
                 child: Image(
                   width: screenWidth * 0.5,
-                  image: AssetImage("assets/images/quero_logo.png"),
+                  image: AssetImage(queropng),
                 ),
               ),
             ),
@@ -98,7 +99,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               SizedBox(height: screenHeight * 0.03),
                               Row(
                                 mainAxisAlignment: MainAxisAlignment
-                                    .center, // Center the content horizontally
+                                    .center, 
                                 children: [
                                   Text(
                                     S.of(context).Dont_have_an_account_yet,

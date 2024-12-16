@@ -1,5 +1,8 @@
+import 'dart:js_interop';
+
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:quero_cafe/core/cubit/locale/locale_cubit.dart';
@@ -15,7 +18,13 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(const MyApp());
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]).then((_){
+runApp(const MyApp());
+});
+  
 }
 
 class MyApp extends StatelessWidget {
