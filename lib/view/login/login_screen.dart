@@ -112,8 +112,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                   SizedBox(width: 8),
                                   TextButton(
                                     onPressed: () {
-                                      // Navigate to signup screen
-                                      // Example: Navigator.pushNamed(context, '/signup');
+                                    
+                                     Navigator.pushNamed(context, '/register');
                                     },
                                     style: TextButton.styleFrom(
                                       padding: EdgeInsets.zero,

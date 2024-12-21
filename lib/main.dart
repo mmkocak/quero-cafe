@@ -1,4 +1,4 @@
-import 'dart:js_interop';
+
 
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -9,6 +9,7 @@ import 'package:quero_cafe/core/cubit/locale/locale_cubit.dart';
 import 'package:quero_cafe/firebase_options.dart';
 import 'package:quero_cafe/generated/l10n.dart';
 import 'package:quero_cafe/view/login/login_screen.dart';
+import 'package:quero_cafe/view/register/register_screen.dart';
 import 'package:quero_cafe/view/splash/splash_screen.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
@@ -59,6 +60,7 @@ class MyApp extends StatelessWidget {
             routes: {
               '/': (context) => SplashScreen(),
               '/login': (context) => LoginScreen(),
+              '/register': (context) => RegisterScreen(),
             },
             title: 'Quero Cafe',
             theme: ThemeData(
