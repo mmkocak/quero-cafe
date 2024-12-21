@@ -7,6 +7,13 @@
   "password": "Şifre",
   "enter": "Giriş",
  "Dont_have_an_account_yet": "Henüz bir hesabın yok mu?",
-  "sign_up": "Kayıt Ol"
+  "sign_up": "Kayıt Ol",
+  "register": "Kayıt Ol",
+  "repeat_password": "Şifreyi tekrar girin",
+  "e_mail": "e-mail",
+  "I_already_have_an_account": "Zaten bir hesabım var.",
+  "Access": "Giriş yap"
+
+
 
 }

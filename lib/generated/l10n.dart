@@ -139,6 +139,56 @@ class S {
       args: [],
     );
   }
+
+  /// `Sign up`
+  String get register {
+    return Intl.message(
+      'Sign up',
+      name: 'register',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Repeat password`
+  String get repeat_password {
+    return Intl.message(
+      'Repeat password',
+      name: 'repeat_password',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `e-mail`
+  String get e_mail {
+    return Intl.message(
+      'e-mail',
+      name: 'e_mail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `I already have an account.`
+  String get I_already_have_an_account {
+    return Intl.message(
+      'I already have an account.',
+      name: 'I_already_have_an_account',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Access`
+  String get Access {
+    return Intl.message(
+      'Access',
+      name: 'Access',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -7,6 +7,13 @@
      "password": "Password",
      "enter": "Enter",
      "Dont_have_an_account_yet": "Don't have an account yet?",
-     "sign_up": "Sign up"
+     "sign_up": "Sign up",
+     "register": "Sign up",
+     "repeat_password": "Repeat password",
+     "e_mail": "e-mail",
+     "I_already_have_an_account": "I already have an account.",
+     "Access": "Access"
+
+
 
 }

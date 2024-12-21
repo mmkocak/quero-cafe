@@ -7,7 +7,12 @@
   "password": "Senha",
   "enter": "Entrar",
   "Dont_have_an_account_yet": "Ainda não possuí uma conta?",
-  "sign_up": "Cadastre-se"
+  "sign_up": "Cadastre-se",
+  "register": "Cadastro",
+  "repeat_password": "Repita a senha",
+  "e_mail": "e-mail",
+  "I_already_have_an_account": "Ja possuo uma conta.",
+  "Access": "Acessar"
 
 
 
