@@ -6,19 +6,21 @@ class EnterButton extends StatelessWidget {
     super.key,
     required this.screenWidth,
     required this.screenHeight,
+    this.onPressed,
   });
 
   final double screenWidth;
   final double screenHeight;
+  final VoidCallback? onPressed;
 
   @override
   Widget build(BuildContext context) {
     return Material(
       borderRadius: BorderRadius.circular(16.0),
       child: InkWell(
-        onTap: () {
-          debugPrint("Inkwell tıklandı");
-        },
+       
+          onTap:  onPressed,
+        
         child: Container(
           width: screenWidth * 0.9,
           height: screenHeight * 0.08,

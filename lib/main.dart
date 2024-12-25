@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:quero_cafe/core/cubit/authentication/authentication_cubit.dart';
 import 'package:quero_cafe/core/cubit/locale/locale_cubit.dart';
 import 'package:quero_cafe/firebase_options.dart';
 import 'package:quero_cafe/generated/l10n.dart';
@@ -33,8 +34,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => LocaleCubit(),
+    return MultiBlocProvider(
+      providers: [
+          BlocProvider(create:(context) => LocaleCubit(),),
+          BlocProvider(create:(context) => AuthenticationCubit(),),
+      ],
+     
+      
       child: BlocBuilder<LocaleCubit, LocaleState>(
         builder: (context, state) {
           return MaterialApp(
