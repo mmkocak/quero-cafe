@@ -29,7 +29,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("I already have an account."),
         "e_mail": MessageLookupByLibrary.simpleMessage("e-mail"),
         "enter": MessageLookupByLibrary.simpleMessage("Enter"),
+        "fill_in_all_fields":
+            MessageLookupByLibrary.simpleMessage("Fill in all fields"),
         "login": MessageLookupByLibrary.simpleMessage("Login"),
+        "ok": MessageLookupByLibrary.simpleMessage("Ok"),
         "onboarding_description": MessageLookupByLibrary.simpleMessage(
             "Experience your best moments alongside a cup of "),
         "onboarding_description_highlight":
@@ -37,10 +40,21 @@ class MessageLookup extends MessageLookupByLibrary {
         "onboarding_description_part2":
             MessageLookupByLibrary.simpleMessage("."),
         "password": MessageLookupByLibrary.simpleMessage("Password"),
+        "password_invalid":
+            MessageLookupByLibrary.simpleMessage("password invalid"),
+        "password_too_short":
+            MessageLookupByLibrary.simpleMessage("password too short"),
+        "passwords_do_not_match":
+            MessageLookupByLibrary.simpleMessage("passwords do not match"),
+        "please_enter_a_password":
+            MessageLookupByLibrary.simpleMessage("please enter a password"),
+        "please_enter_the_password_again": MessageLookupByLibrary.simpleMessage(
+            "please enter the password again"),
         "register": MessageLookupByLibrary.simpleMessage("Sign up"),
         "repeat_password":
             MessageLookupByLibrary.simpleMessage("Repeat password"),
         "sign_up": MessageLookupByLibrary.simpleMessage("Sign up"),
-        "username": MessageLookupByLibrary.simpleMessage("Username")
+        "username": MessageLookupByLibrary.simpleMessage("Username"),
+        "warning": MessageLookupByLibrary.simpleMessage("Warning")
       };
 }

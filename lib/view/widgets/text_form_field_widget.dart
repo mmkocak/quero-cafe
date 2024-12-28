@@ -4,17 +4,24 @@ class TextformFieldWidget extends StatelessWidget {
   const TextformFieldWidget({
     super.key,
     required this.screenWidth,
-     this.controller
+     this.controller,
+     this.obscureText = false,
+     this.validator,
   });
 
   final double screenWidth;
   final TextEditingController? controller;
+  final bool obscureText;
+  final String? Function(String?)? validator;
+
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       width: screenWidth * 0.9,
       child: TextFormField(
+        validator: validator,
+        obscureText: obscureText,
         controller: controller,
         decoration: InputDecoration(
           filled: true,

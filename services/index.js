@@ -30,6 +30,8 @@ app.post('/register', async (req, res) => {
         console.error("Invalid email format");
         return res.status(400).send({ error: 'Invalid email format' });
     
+    }else if(password.length < 6){
+        return res.status(400).send({ error: 'Password must be at least 6 characters long' });
     }
 
     try {

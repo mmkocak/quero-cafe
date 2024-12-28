@@ -12,7 +12,15 @@
      "repeat_password": "Repeat password",
      "e_mail": "e-mail",
      "I_already_have_an_account": "I already have an account.",
-     "Access": "Access"
+     "Access": "Access",
+     "warning": "Warning",
+     "ok": "Ok",
+     "password_too_short": "password too short",
+     "password_invalid": "password invalid",
+     "passwords_do_not_match": "passwords do not match",
+     "please_enter_a_password": "please enter a password",
+     "please_enter_the_password_again": "please enter the password again",
+     "fill_in_all_fields": "Fill in all fields"
 
 
 

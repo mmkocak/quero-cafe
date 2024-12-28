@@ -13,11 +13,60 @@ class RegisterScreen extends StatefulWidget {
 }
 
 class _RegisterScreenState extends State<RegisterScreen> {
+  final _formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     final TextEditingController _usernameController = TextEditingController();
     final TextEditingController _emailController = TextEditingController();
     final TextEditingController _passwordController = TextEditingController();
+    final TextEditingController _repeatPasswordController =
+        TextEditingController();
+    void _showAlertDialog(String message) {
+      showDialog(
+
+        context: context,
+        builder: (context) => AlertDialog(
+          backgroundColor: Colors.black,
+          title: Text(S.of(context).warning, style: TextStyle(color: Colors.white)),
+          content: Text(message, style: TextStyle(color: Colors.white),),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(context),
+              child: Text(S.of(context).ok, style: TextStyle(color: Color(0xFFB17445)),),
+            ),
+          ],
+        ),
+      );
+    }
+
+    String? _validatePassword(String password) {
+      if (password.isEmpty) {
+        return S.of(context).please_enter_a_password;
+      }
+      if (password.length < 6) {
+        _showAlertDialog(S.of(context).password_too_short.toString());
+        return S.of(context).password_too_short;
+      }
+      if (!RegExp(
+              r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$')
+          .hasMatch(password)) {
+        return S.of(context).password_invalid;
+      }
+
+      return null;
+    }
+
+    String? _validateRepeatPassword(String repeatPassword, String password) {
+      if (repeatPassword.isEmpty) {
+        return S.of(context).please_enter_the_password_again;
+      }
+
+      if (password != repeatPassword) {
+        return S.of(context).passwords_do_not_match;
+      }
+      return null;
+    }
 
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
@@ -33,152 +82,178 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 SnackBar(content: Text('Registration Failed: ${state.error}')));
           }
         },
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            SizedBox(
-              height: screenHeight * 0.15,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+        child: SingleChildScrollView(
+          child: Form(
+            key: _formKey,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Text(
-                  S.of(context).register,
-                  style: TextStyle(
-                      fontFamily: "Sora",
-                      fontSize: screenWidth * 0.07,
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold),
+                SizedBox(
+                  height: screenHeight * 0.15,
                 ),
-              ],
-            ),
-            SizedBox(
-              height: screenHeight * 0.03,
-            ),
-            Form(
-              child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.03),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      S.of(context).username,
+                      S.of(context).register,
                       style: TextStyle(
+                          fontFamily: "Sora",
+                          fontSize: screenWidth * 0.07,
                           color: Colors.white,
-                          fontSize: screenWidth * 0.04,
-                          fontWeight: FontWeight.bold,
-                          fontFamily: "Sora"),
+                          fontWeight: FontWeight.bold),
                     ),
-                    SizedBox(
-                      height: screenHeight * 0.01,
-                    ),
-                    TextformFieldWidget(
-                        controller: _usernameController,
-                        screenWidth: screenWidth),
-                    SizedBox(
-                      height: screenHeight * 0.04,
-                    ),
-                    Text(
-                      S.of(context).password,
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: screenWidth * 0.04,
-                          fontWeight: FontWeight.bold,
-                          fontFamily: "Sora"),
-                    ),
-                    SizedBox(
-                      height: screenHeight * 0.01,
-                    ),
-                    TextformFieldWidget(
-                        controller: _passwordController,
-                        screenWidth: screenWidth),
-                    SizedBox(
-                      height: screenHeight * 0.04,
-                    ),
-                    Text(
-                      S.of(context).repeat_password,
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: screenWidth * 0.04,
-                          fontWeight: FontWeight.bold,
-                          fontFamily: "Sora"),
-                    ),
-                    SizedBox(
-                      height: screenHeight * 0.01,
-                    ),
-                    TextformFieldWidget(screenWidth: screenWidth),
-                    SizedBox(
-                      height: screenHeight * 0.04,
-                    ),
-                    Text(
-                      S.of(context).e_mail,
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: screenWidth * 0.04,
-                          fontWeight: FontWeight.bold,
-                          fontFamily: "Sora"),
-                    ),
-                    SizedBox(
-                      height: screenHeight * 0.01,
-                    ),
-                    TextformFieldWidget(
-                        controller: _emailController, screenWidth: screenWidth),
-                    SizedBox(
-                      height: screenHeight * 0.04,
-                    ),
-                    EnterButton(
-                        onPressed: () {
-                          final username = _usernameController.text.trim();
-                          final email = _emailController.text.trim();
-                          final password = _passwordController.text.trim();
-
-                          context
-                              .read<AuthenticationCubit>()
-                              .registerUser(username, email, password);
-                        },
-                        screenWidth: screenWidth,
-                        screenHeight: screenHeight),
-                    SizedBox(
-                      height: screenHeight * 0.01,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          S.of(context).I_already_have_an_account,
-                          style: TextStyle(
+                  ],
+                ),
+                SizedBox(
+                  height: screenHeight * 0.03,
+                ),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.03),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        S.of(context).username,
+                        style: TextStyle(
                             color: Colors.white,
-                            fontSize: screenWidth * 0.03,
-                            fontFamily: "Sora",
-                          ),
-                        ),
-                        SizedBox(width: 8),
-                        TextButton(
+                            fontSize: screenWidth * 0.04,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: "Sora"),
+                      ),
+                      SizedBox(
+                        height: screenHeight * 0.01,
+                      ),
+                      TextformFieldWidget(
+                          controller: _usernameController,
+                          screenWidth: screenWidth),
+                      SizedBox(
+                        height: screenHeight * 0.04,
+                      ),
+                      // Password
+                      Text(
+                        S.of(context).password,
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: screenWidth * 0.04,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: "Sora"),
+                      ),
+                      SizedBox(
+                        height: screenHeight * 0.01,
+                      ),
+                      TextformFieldWidget(
+                          validator: (value) => _validatePassword(value!),
+                          obscureText: true,
+                          controller: _passwordController,
+                          screenWidth: screenWidth),
+                      SizedBox(
+                        height: screenHeight * 0.04,
+                      ),
+                      // Repeat password
+                      Text(
+                        S.of(context).repeat_password,
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: screenWidth * 0.04,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: "Sora"),
+                      ),
+                      SizedBox(
+                        height: screenHeight * 0.01,
+                      ),
+                      TextformFieldWidget(
+                        validator: (value) => _validateRepeatPassword(
+                            value!, _passwordController.text),
+                        obscureText: true,
+                        controller: _repeatPasswordController,
+                        screenWidth: screenWidth,
+                      ),
+
+                      SizedBox(
+                        height: screenHeight * 0.04,
+                      ),
+                      //email
+                      Text(
+                        S.of(context).e_mail,
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: screenWidth * 0.04,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: "Sora"),
+                      ),
+                      SizedBox(
+                        height: screenHeight * 0.01,
+                      ),
+                      TextformFieldWidget(
+                          controller: _emailController,
+                          screenWidth: screenWidth),
+                      SizedBox(
+                        height: screenHeight * 0.04,
+                      ),
+                      EnterButton(
                           onPressed: () {
-                            Navigator.pushNamed(context, '/login');
+                            if (_passwordController.text.isEmpty ||
+                                _emailController.text.isEmpty ||
+                                _usernameController.text.isEmpty) {
+                              _showAlertDialog(
+                                  S.of(context).fill_in_all_fields.toString());
+                            } else {
+                              if (_formKey.currentState!.validate()) {
+                                final username =
+                                    _usernameController.text.trim();
+                                final email = _emailController.text.trim();
+                                final password =
+                                    _passwordController.text.trim();
+                                context
+                                    .read<AuthenticationCubit>()
+                                    .registerUser(username, email, password);
+                              }
+                            }
                           },
-                          style: TextButton.styleFrom(
-                            padding: EdgeInsets.zero,
-                            minimumSize: Size(50, 30),
-                            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                          ),
-                          child: Text(
-                            S.of(context).Access,
+                          screenWidth: screenWidth,
+                          screenHeight: screenHeight),
+                      SizedBox(
+                        height: screenHeight * 0.01,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            S.of(context).I_already_have_an_account,
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: screenWidth * 0.03,
                               fontFamily: "Sora",
-                              decoration: TextDecoration.underline,
                             ),
                           ),
-                        ),
-                      ],
-                    )
-                  ],
+                          SizedBox(width: 8),
+                          TextButton(
+                            onPressed: () {
+                              Navigator.pushNamed(context, '/login');
+                            },
+                            style: TextButton.styleFrom(
+                              padding: EdgeInsets.zero,
+                              minimumSize: Size(50, 30),
+                              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                            ),
+                            child: Text(
+                              S.of(context).Access,
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: screenWidth * 0.03,
+                                fontFamily: "Sora",
+                                decoration: TextDecoration.underline,
+                              ),
+                            ),
+                          ),
+                        ],
+                      )
+                    ],
+                  ),
                 ),
-              ),
+              ],
             ),
-          ],
+          ),
         ),
       ),
     );

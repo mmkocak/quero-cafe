@@ -29,7 +29,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Zaten bir hesabım var."),
         "e_mail": MessageLookupByLibrary.simpleMessage("e-mail"),
         "enter": MessageLookupByLibrary.simpleMessage("Giriş"),
+        "fill_in_all_fields": MessageLookupByLibrary.simpleMessage(
+            "Lütfen tüm alanları doldurun"),
         "login": MessageLookupByLibrary.simpleMessage("Giriş Yap"),
+        "ok": MessageLookupByLibrary.simpleMessage("Tamam"),
         "onboarding_description": MessageLookupByLibrary.simpleMessage(
             "En güzel anlarınızı bir fincan "),
         "onboarding_description_highlight":
@@ -37,10 +40,21 @@ class MessageLookup extends MessageLookupByLibrary {
         "onboarding_description_part2":
             MessageLookupByLibrary.simpleMessage(" eşliğinde yaşayın."),
         "password": MessageLookupByLibrary.simpleMessage("Şifre"),
+        "password_invalid":
+            MessageLookupByLibrary.simpleMessage("Şifre hatalı"),
+        "password_too_short":
+            MessageLookupByLibrary.simpleMessage("Şifre çok kısa"),
+        "passwords_do_not_match":
+            MessageLookupByLibrary.simpleMessage("Şifreler eşleşmiyor"),
+        "please_enter_a_password":
+            MessageLookupByLibrary.simpleMessage("Lütfen bir şifre girin"),
+        "please_enter_the_password_again": MessageLookupByLibrary.simpleMessage(
+            "Lütfen şifrenizi tekrar girin"),
         "register": MessageLookupByLibrary.simpleMessage("Kayıt Ol"),
         "repeat_password":
             MessageLookupByLibrary.simpleMessage("Şifreyi tekrar girin"),
         "sign_up": MessageLookupByLibrary.simpleMessage("Kayıt Ol"),
-        "username": MessageLookupByLibrary.simpleMessage("Kullanıcı Adı")
+        "username": MessageLookupByLibrary.simpleMessage("Kullanıcı Adı"),
+        "warning": MessageLookupByLibrary.simpleMessage("Uyarı")
       };
 }

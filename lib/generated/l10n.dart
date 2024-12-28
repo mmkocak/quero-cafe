@@ -189,6 +189,86 @@ class S {
       args: [],
     );
   }
+
+  /// `Warning`
+  String get warning {
+    return Intl.message(
+      'Warning',
+      name: 'warning',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ok`
+  String get ok {
+    return Intl.message(
+      'Ok',
+      name: 'ok',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `password too short`
+  String get password_too_short {
+    return Intl.message(
+      'password too short',
+      name: 'password_too_short',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `password invalid`
+  String get password_invalid {
+    return Intl.message(
+      'password invalid',
+      name: 'password_invalid',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `passwords do not match`
+  String get passwords_do_not_match {
+    return Intl.message(
+      'passwords do not match',
+      name: 'passwords_do_not_match',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `please enter a password`
+  String get please_enter_a_password {
+    return Intl.message(
+      'please enter a password',
+      name: 'please_enter_a_password',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `please enter the password again`
+  String get please_enter_the_password_again {
+    return Intl.message(
+      'please enter the password again',
+      name: 'please_enter_the_password_again',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Fill in all fields`
+  String get fill_in_all_fields {
+    return Intl.message(
+      'Fill in all fields',
+      name: 'fill_in_all_fields',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

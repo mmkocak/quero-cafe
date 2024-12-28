@@ -12,7 +12,16 @@
   "repeat_password": "Repita a senha",
   "e_mail": "e-mail",
   "I_already_have_an_account": "Ja possuo uma conta.",
-  "Access": "Acessar"
+  "Access": "Acessar",
+  "warning": "Aviso",
+  "ok": "Ok",
+  "password_too_short": "senha muito curta",
+  "password_invalid": "senha inválida",
+  "passwords_do_not_match":"senhas não coincidem",
+  "please_enter_a_password": "por favor insira uma senha",
+  "please_enter_the_password_again": "por favor insira a senha novamente",
+  "fill_in_all_fields": "Preencha todos os campos"
+
 
 
 
