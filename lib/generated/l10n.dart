@@ -269,6 +269,16 @@ class S {
       args: [],
     );
   }
+
+  /// `The password must contain at least one lowercase letter [a-z], at least one uppercase letter [A-Z], at least one number [0-9] and at least one special character [@$!%*?&].`
+  String get password_type {
+    return Intl.message(
+      'The password must contain at least one lowercase letter [a-z], at least one uppercase letter [A-Z], at least one number [0-9] and at least one special character [@\$!%*?&].',
+      name: 'password_type',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

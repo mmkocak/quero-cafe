@@ -2,6 +2,7 @@ const admin = require('firebase-admin');
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const bcrypt = require('bcrypt');
 
 const app = express();
 
@@ -23,18 +24,20 @@ app.post('/register', async (req, res) => {
     const { username, email, password } = req.body;
 
     // Check for missing fields and valid email format
-    if (!username || !email || !password ) {
+    if (!username || !email || !password) {
         return res.status(400).send({ error: 'All fields are required (username, email with valid format, password)' });
-    }else if(!emailRegex.test(email)){
+    } else if (!emailRegex.test(email)) {
         console.log("Received email:", email);
         console.error("Invalid email format");
         return res.status(400).send({ error: 'Invalid email format' });
-    
-    }else if(password.length < 6){
+
+    } else if (password.length < 6) {
         return res.status(400).send({ error: 'Password must be at least 6 characters long' });
     }
 
     try {
+        const hashedPassword = await bcrypt.hash(password, 10);
+
         const userRecord = await admin.auth().createUser({
             email: email,
             password: password
@@ -44,7 +47,8 @@ app.post('/register', async (req, res) => {
 
         await db.ref(`/users/${userID}`).set({
             username: username,
-            email: email
+            email: email,
+            hashedPassword: hashedPassword
         });
 
         res.status(200).send({ uid: userRecord.uid });

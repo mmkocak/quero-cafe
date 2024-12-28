@@ -14,60 +14,87 @@ class RegisterScreen extends StatefulWidget {
 
 class _RegisterScreenState extends State<RegisterScreen> {
   final _formKey = GlobalKey<FormState>();
+  late TextEditingController _usernameController = TextEditingController();
+  late TextEditingController _emailController = TextEditingController();
+  late TextEditingController _passwordController = TextEditingController();
+  late TextEditingController _repeatPasswordController =
+      TextEditingController();
+
+  void _showAlertDialog(String message) {
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        backgroundColor: Colors.black,
+        title:
+            Text(S.of(context).warning, style: TextStyle(color: Colors.white)),
+        content: Text(
+          message,
+          style: TextStyle(color: Colors.white),
+        ),
+        
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context),
+            child: Text(
+              S.of(context).ok,
+              style: TextStyle(color: Color(0xFFB17445)),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  String? _validatePassword(String password) {
+    if (password.isEmpty) {
+      return S.of(context).please_enter_a_password;
+    }
+    if (password.length < 6) {
+      _showAlertDialog(S.of(context).password_too_short.toString());
+      return S.of(context).password_too_short;
+    }
+    if (!RegExp(
+            r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&_])[A-Za-z\d@$!%*?&_]{6,}$')
+
+        .hasMatch(password)) {
+      _showAlertDialog("${S.of(context).password_invalid.toString()} ${S.of(context).password_type.toString()}");
+      return S.of(context).password_invalid;
+    }
+
+    return null;
+  }
+
+  String? _validateRepeatPassword(String repeatPassword, String password) {
+    if (repeatPassword.isEmpty) {
+      return S.of(context).please_enter_the_password_again;
+    }
+
+    if (password != repeatPassword) {
+      return S.of(context).passwords_do_not_match;
+    }
+    return null;
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _usernameController = TextEditingController();
+    _emailController = TextEditingController();
+    _passwordController = TextEditingController();
+    _repeatPasswordController = TextEditingController();
+  }
+
+  @override
+  void dispose() {
+    _usernameController.dispose();
+    _emailController.dispose();
+    _passwordController.dispose();
+    _repeatPasswordController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
-    final TextEditingController _usernameController = TextEditingController();
-    final TextEditingController _emailController = TextEditingController();
-    final TextEditingController _passwordController = TextEditingController();
-    final TextEditingController _repeatPasswordController =
-        TextEditingController();
-    void _showAlertDialog(String message) {
-      showDialog(
-
-        context: context,
-        builder: (context) => AlertDialog(
-          backgroundColor: Colors.black,
-          title: Text(S.of(context).warning, style: TextStyle(color: Colors.white)),
-          content: Text(message, style: TextStyle(color: Colors.white),),
-          actions: [
-            TextButton(
-              onPressed: () => Navigator.pop(context),
-              child: Text(S.of(context).ok, style: TextStyle(color: Color(0xFFB17445)),),
-            ),
-          ],
-        ),
-      );
-    }
-
-    String? _validatePassword(String password) {
-      if (password.isEmpty) {
-        return S.of(context).please_enter_a_password;
-      }
-      if (password.length < 6) {
-        _showAlertDialog(S.of(context).password_too_short.toString());
-        return S.of(context).password_too_short;
-      }
-      if (!RegExp(
-              r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$')
-          .hasMatch(password)) {
-        return S.of(context).password_invalid;
-      }
-
-      return null;
-    }
-
-    String? _validateRepeatPassword(String repeatPassword, String password) {
-      if (repeatPassword.isEmpty) {
-        return S.of(context).please_enter_the_password_again;
-      }
-
-      if (password != repeatPassword) {
-        return S.of(context).passwords_do_not_match;
-      }
-      return null;
-    }
-
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(

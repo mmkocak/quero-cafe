@@ -44,6 +44,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Şifre hatalı"),
         "password_too_short":
             MessageLookupByLibrary.simpleMessage("Şifre çok kısa"),
+        "password_type": MessageLookupByLibrary.simpleMessage(
+            "Şifre içerisinde en az bir tane küçük harf [a-z] en az bir tane büyük harf [A-Z] en az bir tane rakam [0-9] en az bir tane özel karakter [@\$!%*?&] olmak zorunda"),
         "passwords_do_not_match":
             MessageLookupByLibrary.simpleMessage("Şifreler eşleşmiyor"),
         "please_enter_a_password":

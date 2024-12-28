@@ -44,6 +44,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("password invalid"),
         "password_too_short":
             MessageLookupByLibrary.simpleMessage("password too short"),
+        "password_type": MessageLookupByLibrary.simpleMessage(
+            "The password must contain at least one lowercase letter [a-z], at least one uppercase letter [A-Z], at least one number [0-9] and at least one special character [@\$!%*?&]."),
         "passwords_do_not_match":
             MessageLookupByLibrary.simpleMessage("passwords do not match"),
         "please_enter_a_password":
