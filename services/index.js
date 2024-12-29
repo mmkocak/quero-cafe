@@ -57,6 +57,49 @@ app.post('/register', async (req, res) => {
     }
 });
 
+app.post('/login', async (req, res) => {
+    const { username, password } = req.body;
+
+    if (!username || !password) {
+        return res.status(400).send({ error: 'Username and password are required' });
+    }
+
+    try {        
+        // Get user data from database
+        const userSnapshot = await db.ref('/users').orderByChild('username').equalTo(username).once('value');
+        const usersData = userSnapshot.val();
+
+        if (!usersData) {
+            return res.status(404).send({ error: 'User not found' });
+        }
+
+        const userID = Object.keys(usersData)[0];
+        const userData = usersData[userID];
+
+        // Compare password
+        const passwordMatch = await bcrypt.compare(password, userData.hashedPassword);
+        
+        if (!passwordMatch) {
+            return res.status(401).send({ error: 'Invalid password' });
+        }
+
+        // Generate custom token for client
+        const token = await admin.auth().createCustomToken(userID);
+        
+        res.status(200).send({ 
+            token,
+            user: {
+                uid: userID,
+                email: userData.email,
+                username: userData.username
+            }
+        });
+    } catch (error) {
+        console.error('Login error:', error);
+        res.status(400).send({ error: error.message });
+    }
+});
+
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {

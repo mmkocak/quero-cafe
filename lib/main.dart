@@ -1,5 +1,3 @@
-
-
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -13,6 +11,7 @@ import 'package:quero_cafe/view/login/login_screen.dart';
 import 'package:quero_cafe/view/register/register_screen.dart';
 import 'package:quero_cafe/view/splash/splash_screen.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:quero_cafe/view/home/home_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -67,6 +66,7 @@ class MyApp extends StatelessWidget {
               '/': (context) => SplashScreen(),
               '/login': (context) => LoginScreen(),
               '/register': (context) => RegisterScreen(),
+              '/home': (context) => HomeScreen(),
             },
             title: 'Quero Cafe',
             theme: ThemeData(

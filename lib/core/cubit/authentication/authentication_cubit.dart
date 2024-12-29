@@ -48,27 +48,20 @@ class AuthenticationCubit extends Cubit<AuthState> {
 
     try {
       final response = await http.post(
-        Uri.parse("http://10.0.2.2:5000/login"), // Your login endpoint
+        Uri.parse("http://10.0.2.2:5000/login"),
         headers: {'Content-Type': 'application/json'},
-        body: jsonEncode({'username': username, 'password': password}),
+        body: jsonEncode({
+          'username': username,
+          'password': password,
+        }),
       );
 
       if (response.statusCode == 200) {
-        final loginResponse = json.decode(response.body);
-        String? token = loginResponse['token']; // Assuming your server returns a token
-
-        if (token != null) {
-          emit(AuthSuccess(token: token)); // Emit the token with the success state
-        } else {
-          emit(AuthFailure('Login successful, but no token received.'));
-        }
-
-
+        final data = jsonDecode(response.body);
+        emit(AuthSuccess(token: data['token']));
       } else {
-        final Map<String, dynamic> errorBody = jsonDecode(response.body);
-        String errorMessage = errorBody['error'] ?? 'Unknown error occurred.';
-        emit(AuthFailure(errorMessage));
-        debugPrint('Server error: ${response.statusCode}, Message: $errorMessage'); // Include the error message in debug print
+        final error = jsonDecode(response.body)['error'];
+        emit(AuthFailure(error ?? 'An unknown error occurred'));
       }
     } catch (e) {
       emit(AuthFailure(e.toString()));

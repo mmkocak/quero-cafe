@@ -31,7 +31,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
           message,
           style: TextStyle(color: Colors.white),
         ),
-        
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),
@@ -55,9 +54,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
     }
     if (!RegExp(
             r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&_])[A-Za-z\d@$!%*?&_]{6,}$')
-
         .hasMatch(password)) {
-      _showAlertDialog("${S.of(context).password_invalid.toString()} ${S.of(context).password_type.toString()}");
+      _showAlertDialog(
+          "${S.of(context).password_invalid.toString()} ${S.of(context).password_type.toString()}");
       return S.of(context).password_invalid;
     }
 
@@ -102,11 +101,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
       body: BlocListener<AuthenticationCubit, AuthState>(
         listener: (context, state) {
           if (state is AuthSuccess) {
-            ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(content: Text('Registration Successful')));
+            Navigator.pushNamedAndRemoveUntil(
+              context,
+              '/home',
+              (route) => false,
+            );
           } else if (state is AuthFailure) {
-            ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(content: Text('Registration Failed: ${state.error}')));
+            _showAlertDialog(state.error);
           }
         },
         child: SingleChildScrollView(
