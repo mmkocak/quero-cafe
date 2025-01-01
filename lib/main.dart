@@ -5,15 +5,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:quero_cafe/core/cubit/authentication/authentication_cubit.dart';
 import 'package:quero_cafe/core/cubit/locale/locale_cubit.dart';
+import 'package:quero_cafe/core/routes/app_router.dart';
 import 'package:quero_cafe/firebase_options.dart';
 import 'package:quero_cafe/generated/l10n.dart';
-import 'package:quero_cafe/view/login/login_screen.dart';
-import 'package:quero_cafe/view/register/register_screen.dart';
-import 'package:quero_cafe/view/splash/splash_screen.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:quero_cafe/view/home/home_screen.dart';
 import 'package:quero_cafe/core/cubit/navigation/navigation_cubit.dart';
-import 'package:quero_cafe/view/widgets/custom_bottom_nav_bar.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -71,13 +67,8 @@ class MyApp extends StatelessWidget {
               }
               return state.locale;
             },
-            initialRoute: '/',
-            routes: {
-              '/': (context) => SplashScreen(),
-              '/login': (context) => LoginScreen(),
-              '/register': (context) => RegisterScreen(),
-              '/home': (context) => CustomBottomNavBar(),
-            },
+            initialRoute: AppRouter.splash,
+            routes: AppRouter.routes,
             title: 'Quero Cafe',
             theme: ThemeData(
               
