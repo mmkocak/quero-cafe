@@ -81,7 +81,6 @@ flutter:
   assets:
     - key.env
     - assets/images/
-    - assets/images/coffe_wp.png
     
 
   # An image asset can refer to one or more resolution-specific "variants", see

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quero_cafe/view/widgets/coffee_item_card.dart';
 import 'package:quero_cafe/view/widgets/coffee_card.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -9,6 +10,57 @@ class HomeScreen extends StatelessWidget {
     final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
     
+    final List<Map<String, dynamic>> coffees = [
+      {
+        'name': 'Cappucino',
+        'description': 'com Chocolate',
+        'price': 11.50,
+        'image': 'assets/images/cuppucino.png',
+      },
+      {
+        'name': 'Coffee Latte',
+        'description': 'com Leite',
+        'price': 8.50,
+        'image': 'assets/images/latte.png',
+      },
+      {
+        'name': 'Cold Brew',
+        'description': 'com Gelo',
+        'price': 9.50,
+        'image': 'assets/images/cold_brew.png',
+      },
+      {
+        'name': 'Alpino',
+        'description': 'com Chocolate',
+        'price': 12.50,
+        'image': 'assets/images/alpino.png',
+      },
+       {
+        'name': 'Cappucino',
+        'description': 'com Chocolate',
+        'price': 11.50,
+        'image': 'assets/images/cuppucino.png',
+      },
+      {
+        'name': 'Coffee Latte',
+        'description': 'com Leite',
+        'price': 8.50,
+        'image': 'assets/images/latte.png',
+      },
+      {
+        'name': 'Cold Brew',
+        'description': 'com Gelo',
+        'price': 9.50,
+        'image': 'assets/images/cold_brew.png',
+      },
+      {
+        'name': 'Alpino',
+        'description': 'com Chocolate',
+        'price': 12.50,
+        'image': 'assets/images/alpino.png',
+      },
+    ];
+
     return Scaffold(
       body: Stack(
         children: [
@@ -78,14 +130,35 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ),
                 ),
+                SizedBox(height: screenHeight * 0.05),
                 Container(
                   height: screenHeight * 0.7,
-                  child: Center(
-                    child: Text(
-                      'Ana Sayfa İçeriği',
-                      style: TextStyle(
-                        fontSize: screenWidth * 0.03,
+                  padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.04),
+                  child: RawScrollbar(
+                    thumbColor: Color(0xFFB17445),
+                    radius: Radius.circular(20),
+                    thickness: 5,
+                    child: GridView.builder(
+                      physics: BouncingScrollPhysics(),
+                      padding: EdgeInsets.only(
+                        top: screenHeight * 0.1,
+                        right: screenWidth * 0.02,
                       ),
+                      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 2,
+                        childAspectRatio: 0.75,
+                        crossAxisSpacing: 15,
+                        mainAxisSpacing: 15,
+                      ),
+                      itemCount: coffees.length,
+                      itemBuilder: (context, index) {
+                        return CoffeeItemCard(
+                          name: coffees[index]['name'],
+                          description: coffees[index]['description'],
+                          price: coffees[index]['price'],
+                          imageUrl: coffees[index]['image'],
+                        );
+                      },
                     ),
                   ),
                 ),
