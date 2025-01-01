@@ -21,8 +21,12 @@
   "please_enter_a_password": "por favor insira uma senha",
   "please_enter_the_password_again": "por favor insira a senha novamente",
   "fill_in_all_fields": "Preencha todos os campos",
-  "password_type": "A senha deve conter pelo menos uma letra minúscula [a-z], uma letra maiúscula [A-Z], um número [0-9] e um caractere especial [@$!%*?&]."
-
+  "password_type": "A senha deve conter pelo menos uma letra minúscula [a-z], uma letra maiúscula [A-Z], um número [0-9] e um caractere especial [@$!%*?&].",
+  "welcome": "Bem-vindo",
+  "so_and_so": "fulano de tal",
+  "news": "Novidades",
+  "latte": "coffee Latte",
+  "with_milk": "com leite"
 
 
 

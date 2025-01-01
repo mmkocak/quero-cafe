@@ -31,7 +31,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "enter": MessageLookupByLibrary.simpleMessage("Enter"),
         "fill_in_all_fields":
             MessageLookupByLibrary.simpleMessage("Fill in all fields"),
+        "latte": MessageLookupByLibrary.simpleMessage("Latte"),
         "login": MessageLookupByLibrary.simpleMessage("Login"),
+        "news": MessageLookupByLibrary.simpleMessage("News"),
         "ok": MessageLookupByLibrary.simpleMessage("Ok"),
         "onboarding_description": MessageLookupByLibrary.simpleMessage(
             "Experience your best moments alongside a cup of "),
@@ -56,7 +58,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "repeat_password":
             MessageLookupByLibrary.simpleMessage("Repeat password"),
         "sign_up": MessageLookupByLibrary.simpleMessage("Sign up"),
+        "so_and_so": MessageLookupByLibrary.simpleMessage("so and so"),
         "username": MessageLookupByLibrary.simpleMessage("Username"),
-        "warning": MessageLookupByLibrary.simpleMessage("Warning")
+        "warning": MessageLookupByLibrary.simpleMessage("Warning"),
+        "welcome": MessageLookupByLibrary.simpleMessage("Welcome"),
+        "with_milk": MessageLookupByLibrary.simpleMessage("with milk")
       };
 }

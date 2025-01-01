@@ -31,7 +31,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "enter": MessageLookupByLibrary.simpleMessage("Giriş"),
         "fill_in_all_fields": MessageLookupByLibrary.simpleMessage(
             "Lütfen tüm alanları doldurun"),
+        "latte": MessageLookupByLibrary.simpleMessage("Latte"),
         "login": MessageLookupByLibrary.simpleMessage("Giriş Yap"),
+        "news": MessageLookupByLibrary.simpleMessage("Haberler"),
         "ok": MessageLookupByLibrary.simpleMessage("Tamam"),
         "onboarding_description": MessageLookupByLibrary.simpleMessage(
             "En güzel anlarınızı bir fincan "),
@@ -56,7 +58,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "repeat_password":
             MessageLookupByLibrary.simpleMessage("Şifreyi tekrar girin"),
         "sign_up": MessageLookupByLibrary.simpleMessage("Kayıt Ol"),
+        "so_and_so": MessageLookupByLibrary.simpleMessage("falan filan"),
         "username": MessageLookupByLibrary.simpleMessage("Kullanıcı Adı"),
-        "warning": MessageLookupByLibrary.simpleMessage("Uyarı")
+        "warning": MessageLookupByLibrary.simpleMessage("Uyarı"),
+        "welcome": MessageLookupByLibrary.simpleMessage("Hoşgeldin"),
+        "with_milk": MessageLookupByLibrary.simpleMessage("sütlü")
       };
 }

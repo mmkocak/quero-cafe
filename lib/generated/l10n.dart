@@ -279,6 +279,56 @@ class S {
       args: [],
     );
   }
+
+  /// `Welcome`
+  String get welcome {
+    return Intl.message(
+      'Welcome',
+      name: 'welcome',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `so and so`
+  String get so_and_so {
+    return Intl.message(
+      'so and so',
+      name: 'so_and_so',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `News`
+  String get news {
+    return Intl.message(
+      'News',
+      name: 'news',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Latte`
+  String get latte {
+    return Intl.message(
+      'Latte',
+      name: 'latte',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `with milk`
+  String get with_milk {
+    return Intl.message(
+      'with milk',
+      name: 'with_milk',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

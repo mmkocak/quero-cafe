@@ -21,5 +21,10 @@
   "please_enter_a_password": "Lütfen bir şifre girin",
   "please_enter_the_password_again": "Lütfen şifrenizi tekrar girin",
   "fill_in_all_fields": "Lütfen tüm alanları doldurun",
-  "password_type": "Şifre içerisinde en az bir tane küçük harf [a-z] en az bir tane büyük harf [A-Z] en az bir tane rakam [0-9] en az bir tane özel karakter [@$!%*?&] olmak zorunda"
+  "password_type": "Şifre içerisinde en az bir tane küçük harf [a-z] en az bir tane büyük harf [A-Z] en az bir tane rakam [0-9] en az bir tane özel karakter [@$!%*?&] olmak zorunda",
+  "welcome": "Hoşgeldin",
+  "so_and_so": "falan filan",
+  "news": "Haberler",
+  "latte" :"Latte",
+  "with_milk": "sütlü"
   }

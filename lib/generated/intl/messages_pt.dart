@@ -31,7 +31,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "enter": MessageLookupByLibrary.simpleMessage("Entrar"),
         "fill_in_all_fields":
             MessageLookupByLibrary.simpleMessage("Preencha todos os campos"),
+        "latte": MessageLookupByLibrary.simpleMessage("coffee Latte"),
         "login": MessageLookupByLibrary.simpleMessage("Login"),
+        "news": MessageLookupByLibrary.simpleMessage("Novidades"),
         "ok": MessageLookupByLibrary.simpleMessage("Ok"),
         "onboarding_description": MessageLookupByLibrary.simpleMessage(
             "Aproveite seus melhores momentos com um café."),
@@ -56,7 +58,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "repeat_password":
             MessageLookupByLibrary.simpleMessage("Repita a senha"),
         "sign_up": MessageLookupByLibrary.simpleMessage("Cadastre-se"),
+        "so_and_so": MessageLookupByLibrary.simpleMessage("fulano de tal"),
         "username": MessageLookupByLibrary.simpleMessage("Usuário"),
-        "warning": MessageLookupByLibrary.simpleMessage("Aviso")
+        "warning": MessageLookupByLibrary.simpleMessage("Aviso"),
+        "welcome": MessageLookupByLibrary.simpleMessage("Bem-vindo"),
+        "with_milk": MessageLookupByLibrary.simpleMessage("com leite")
       };
 }
