@@ -12,6 +12,7 @@ import 'package:quero_cafe/view/register/register_screen.dart';
 import 'package:quero_cafe/view/splash/splash_screen.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:quero_cafe/view/home/home_screen.dart';
+import 'package:quero_cafe/core/cubit/navigation/navigation_cubit.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -23,7 +24,14 @@ void main() async {
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
   ]).then((_){
-runApp(const MyApp());
+runApp(MultiBlocProvider(
+  providers: [
+    BlocProvider(create: (context) => LocaleCubit()),
+    BlocProvider(create: (context) => AuthenticationCubit()),
+    BlocProvider(create: (context) => NavigationCubit()),
+  ],
+  child: const MyApp(),
+));
 });
   
 }
@@ -35,8 +43,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-          BlocProvider(create:(context) => LocaleCubit(),),
-          BlocProvider(create:(context) => AuthenticationCubit(),),
+          BlocProvider(create:(context) => LocaleCubit()),
+          BlocProvider(create:(context) => AuthenticationCubit()),
+          BlocProvider(create:(context) => NavigationCubit()),
       ],
      
       
