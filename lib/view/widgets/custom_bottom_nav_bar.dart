@@ -6,6 +6,22 @@ import 'package:quero_cafe/view/screens/map_screen.dart';
 import 'package:quero_cafe/view/screens/profile_screen.dart';
 import 'package:quero_cafe/view/home/home_screen.dart';
 
+class HomeContent extends StatelessWidget {
+  const HomeContent({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Ana Sayfa'),
+      ),
+      body: const Center(
+        child: Text('Ana Sayfa İçeriği'),
+      ),
+    );
+  }
+}
+
 class CustomBottomNavBar extends StatelessWidget {
   const CustomBottomNavBar({Key? key}) : super(key: key);
 
@@ -16,20 +32,23 @@ class CustomBottomNavBar extends StatelessWidget {
         builder: (context, currentIndex) {
           switch (currentIndex) {
             case 0:
-              return  HomeScreen();
+              return const HomeContent();
             case 1:
               return const CartScreen();
             case 2:
               return const MapScreen();
-            case 3:
-              return const ProfileScreen();
+           
             default:
-              return  HomeScreen();
+              return const HomeContent();
           }
         },
       ),
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
+          borderRadius: const BorderRadius.only(
+            topLeft: Radius.circular(20),
+            topRight: Radius.circular(20),
+          ),
           boxShadow: [
             BoxShadow(
               color: Colors.black.withAlpha(51),
@@ -38,33 +57,37 @@ class CustomBottomNavBar extends StatelessWidget {
             ),
           ],
         ),
-        child: BottomNavigationBar(
-          currentIndex: context.watch<NavigationCubit>().state,
-          onTap: (index) {
-            context.read<NavigationCubit>().changeIndex(index);
-          },
-          type: BottomNavigationBarType.fixed,
-          selectedItemColor: Color(0xFFB17445),
-          unselectedItemColor: Colors.grey,
-          backgroundColor: Colors.white,
-          items: const [
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              label: "Ana Sayfa",
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.shopping_cart),
-              label: "Sepet",
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.map),
-              label: "Harita",
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.person),
-              label: "Profil",
-            ),
-          ],
+        child: ClipRRect(
+          borderRadius: const BorderRadius.only(
+            topLeft: Radius.circular(20),
+            topRight: Radius.circular(20),
+          ),
+          child: BottomNavigationBar(
+             showSelectedLabels: false,
+            showUnselectedLabels: false,
+            currentIndex: context.watch<NavigationCubit>().state,
+            onTap: (index) {
+              context.read<NavigationCubit>().changeIndex(index);
+            },
+            type: BottomNavigationBarType.fixed,
+            selectedItemColor: Color(0xFFB17445),
+            unselectedItemColor: Colors.grey,
+            backgroundColor: Colors.white,
+            items: const [
+              BottomNavigationBarItem(
+                icon: Icon(Icons.home, size: 30),
+                label: "Ana Sayfa",
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.shopping_cart, size: 30),
+                label: "Sepet",
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.map, size: 30),
+                label: "Harita",
+              ),
+            ],
+          ),
         ),
       ),
     );
