@@ -13,6 +13,7 @@ import 'package:quero_cafe/view/splash/splash_screen.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:quero_cafe/view/home/home_screen.dart';
 import 'package:quero_cafe/core/cubit/navigation/navigation_cubit.dart';
+import 'package:quero_cafe/view/widgets/custom_bottom_nav_bar.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -75,7 +76,7 @@ class MyApp extends StatelessWidget {
               '/': (context) => SplashScreen(),
               '/login': (context) => LoginScreen(),
               '/register': (context) => RegisterScreen(),
-              '/home': (context) => HomeScreen(),
+              '/home': (context) => CustomBottomNavBar(),
             },
             title: 'Quero Cafe',
             theme: ThemeData(

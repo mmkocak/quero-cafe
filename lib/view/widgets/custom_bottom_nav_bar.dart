@@ -3,24 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:quero_cafe/core/cubit/navigation/navigation_cubit.dart';
 import 'package:quero_cafe/view/screens/cart_screen.dart';
 import 'package:quero_cafe/view/screens/map_screen.dart';
-import 'package:quero_cafe/view/screens/profile_screen.dart';
 import 'package:quero_cafe/view/home/home_screen.dart';
-
-class HomeContent extends StatelessWidget {
-  const HomeContent({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Ana Sayfa'),
-      ),
-      body: const Center(
-        child: Text('Ana Sayfa İçeriği'),
-      ),
-    );
-  }
-}
 
 class CustomBottomNavBar extends StatelessWidget {
   const CustomBottomNavBar({Key? key}) : super(key: key);
@@ -32,14 +15,13 @@ class CustomBottomNavBar extends StatelessWidget {
         builder: (context, currentIndex) {
           switch (currentIndex) {
             case 0:
-              return const HomeContent();
+              return const HomeScreen();
             case 1:
               return const CartScreen();
             case 2:
               return const MapScreen();
-           
             default:
-              return const HomeContent();
+              return const HomeScreen();
           }
         },
       ),
@@ -63,7 +45,7 @@ class CustomBottomNavBar extends StatelessWidget {
             topRight: Radius.circular(20),
           ),
           child: BottomNavigationBar(
-             showSelectedLabels: false,
+            showSelectedLabels: false,
             showUnselectedLabels: false,
             currentIndex: context.watch<NavigationCubit>().state,
             onTap: (index) {
