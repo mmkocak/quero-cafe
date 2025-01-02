@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-
 mixin CoffeeDataMixin {
   List<Map<String, dynamic>> get coffeeList => [
     {
