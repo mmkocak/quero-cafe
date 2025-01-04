@@ -4,14 +4,12 @@ import 'package:quero_cafe/view/widgets/coffee_item_card.dart';
 import 'package:quero_cafe/view/widgets/coffee_card.dart';
 
 class HomeScreen extends StatelessWidget with CoffeeDataMixin {
-   HomeScreen({Key? key}) : super(key: key);
+  HomeScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
-    
-    
 
     return Scaffold(
       body: Stack(
@@ -81,6 +79,7 @@ class HomeScreen extends StatelessWidget with CoffeeDataMixin {
                   ),
                 ),
               ),
+              SizedBox(height: screenHeight * 0.04),
               Expanded(
                 child: Container(
                   padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.04),
@@ -94,7 +93,8 @@ class HomeScreen extends StatelessWidget with CoffeeDataMixin {
                         top: screenHeight * 0.1,
                         right: screenWidth * 0.02,
                       ),
-                      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 2,
                         childAspectRatio: 0.75,
                         crossAxisSpacing: 15,

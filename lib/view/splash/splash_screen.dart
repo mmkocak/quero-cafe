@@ -3,30 +3,8 @@ import 'package:quero_cafe/core/cubit/locale/locale_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:quero_cafe/generated/l10n.dart';
 
-class SplashScreen extends StatefulWidget {
+class SplashScreen extends StatelessWidget {
   const SplashScreen({Key? key}) : super(key: key);
-
-  @override
-  _SplashScreenState createState() => _SplashScreenState();
-}
-
-class _SplashScreenState extends State<SplashScreen> {
-  @override
-  void initState() {
-    super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      _navigateToLogin();
-    });
-  }
-
-  _navigateToLogin() async {
-    await Future.delayed(
-      Duration(seconds: 5),
-    );
-    if (mounted) {
-      Navigator.pushReplacementNamed(context, '/login');
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -61,35 +39,7 @@ class _SplashScreenState extends State<SplashScreen> {
                     ),
                   ),
                   child: Center(
-                    child: SizedBox(
-                      width: screenWidth * 0.7,
-                      child: RichText(
-                        textAlign: TextAlign.center,
-                        text: TextSpan(
-                          style: TextStyle(
-                            fontFamily: "Sora",
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                            fontSize: screenWidth * 0.08,
-                          ),
-                          children: [
-                            TextSpan(
-                                text: S.of(context).onboarding_description),
-                            TextSpan(
-                              text: S
-                                  .of(context)
-                                  .onboarding_description_highlight,
-                              style: TextStyle(
-                                color: Color(0xFFC67C4E),
-                              ),
-                            ),
-                            TextSpan(
-                                text:
-                                    S.of(context).onboarding_description_part2),
-                          ],
-                        ),
-                      ),
-                    ),
+                    child: CircularProgressIndicator(),
                   ),
                 );
               },
