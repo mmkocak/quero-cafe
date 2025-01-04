@@ -15,13 +15,13 @@ class CustomBottomNavBar extends StatelessWidget {
         builder: (context, currentIndex) {
           switch (currentIndex) {
             case 0:
-              return const HomeScreen();
+              return  HomeScreen();
             case 1:
               return const CartScreen();
             case 2:
               return const MapScreen();
             default:
-              return const HomeScreen();
+              return  HomeScreen();
           }
         },
       ),

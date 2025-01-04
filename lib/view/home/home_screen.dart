@@ -1,65 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:quero_cafe/view/home/mixins/coffee_data_mixin.dart';
 import 'package:quero_cafe/view/widgets/coffee_item_card.dart';
 import 'package:quero_cafe/view/widgets/coffee_card.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+class HomeScreen extends StatelessWidget with CoffeeDataMixin {
+   HomeScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
     
-    final List<Map<String, dynamic>> coffees = [
-      {
-        'name': 'Cappucino',
-        'description': 'com Chocolate',
-        'price': 11.50,
-        'image': 'assets/images/cuppucino.png',
-      },
-      {
-        'name': 'Coffee Latte',
-        'description': 'com Leite',
-        'price': 8.50,
-        'image': 'assets/images/latte.png',
-      },
-      {
-        'name': 'Cold Brew',
-        'description': 'com Gelo',
-        'price': 9.50,
-        'image': 'assets/images/cold_brew.png',
-      },
-      {
-        'name': 'Alpino',
-        'description': 'com Chocolate',
-        'price': 12.50,
-        'image': 'assets/images/alpino.png',
-      },
-      {
-        'name': 'Cappucino',
-        'description': 'com Chocolate',
-        'price': 11.50,
-        'image': 'assets/images/cuppucino.png',
-      },
-      {
-        'name': 'Coffee Latte',
-        'description': 'com Leite',
-        'price': 8.50,
-        'image': 'assets/images/latte.png',
-      },
-      {
-        'name': 'Cold Brew',
-        'description': 'com Gelo',
-        'price': 9.50,
-        'image': 'assets/images/cold_brew.png',
-      },
-      {
-        'name': 'Alpino',
-        'description': 'com Chocolate',
-        'price': 12.50,
-        'image': 'assets/images/alpino.png',
-      },
-    ];
+    
 
     return Scaffold(
       body: Stack(
