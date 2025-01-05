@@ -9,10 +9,7 @@ import 'package:quero_cafe/firebase_options.dart';
 import 'package:quero_cafe/generated/l10n.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:quero_cafe/core/cubit/navigation/navigation_cubit.dart';
-import 'package:quero_cafe/view/login/login_screen.dart';
 import 'package:quero_cafe/view/mixins/build_initial_screen.dart';
-import 'package:quero_cafe/view/splash/splash_screen.dart';
-import 'package:quero_cafe/view/widgets/custom_bottom_nav_bar.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
