@@ -10,6 +10,7 @@ import 'package:quero_cafe/generated/l10n.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:quero_cafe/core/cubit/navigation/navigation_cubit.dart';
 import 'package:quero_cafe/view/login/login_screen.dart';
+import 'package:quero_cafe/view/mixins/build_initial_screen.dart';
 import 'package:quero_cafe/view/splash/splash_screen.dart';
 import 'package:quero_cafe/view/widgets/custom_bottom_nav_bar.dart';
 
@@ -38,7 +39,7 @@ void main() async {
   });
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatelessWidget with BuildInitialScreen {
   const MyApp({super.key});
 
   @override
@@ -62,7 +63,7 @@ class MyApp extends StatelessWidget {
                 colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
                 useMaterial3: true,
               ),
-              home: _buildInitialScreen(authState),
+              home: buildInitialScreen(authState),
             );
           },
         );
@@ -70,13 +71,5 @@ class MyApp extends StatelessWidget {
     );
   }
 
-  Widget _buildInitialScreen(AuthState authState) {
-    if (authState is AuthLoading) {
-      return const SplashScreen();
-    } else if (authState is AuthSuccess) {
-      return const CustomBottomNavBar();
-    } else {
-      return const LoginScreen();
-    }
-  }
+ 
 }
