@@ -4,84 +4,21 @@ import 'package:quero_cafe/core/cubit/authentication/authentication_cubit.dart';
 import 'package:quero_cafe/generated/l10n.dart';
 import 'package:quero_cafe/view/widgets/enter_button.dart';
 import 'package:quero_cafe/view/widgets/text_form_field_widget.dart';
+import 'package:quero_cafe/view/mixins/password_validation_mixin.dart';
 
 class RegisterScreen extends StatefulWidget {
-  const RegisterScreen({Key? key}) : super(key: key);
+  const RegisterScreen({super.key});
 
   @override
-  _RegisterScreenState createState() => _RegisterScreenState();
+  State<RegisterScreen> createState() => _RegisterScreenState();
 }
 
-class _RegisterScreenState extends State<RegisterScreen> {
+class _RegisterScreenState extends State<RegisterScreen> with PasswordValidationMixin {
   final _formKey = GlobalKey<FormState>();
-  late TextEditingController _usernameController = TextEditingController();
-  late TextEditingController _emailController = TextEditingController();
-  late TextEditingController _passwordController = TextEditingController();
-  late TextEditingController _repeatPasswordController =
-      TextEditingController();
-
-  void _showAlertDialog(String message) {
-    showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        backgroundColor: Colors.black,
-        title:
-            Text(S.of(context).warning, style: TextStyle(color: Colors.white)),
-        content: Text(
-          message,
-          style: TextStyle(color: Colors.white),
-        ),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(context),
-            child: Text(
-              S.of(context).ok,
-              style: TextStyle(color: Color(0xFFB17445)),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  String? _validatePassword(String password) {
-    if (password.isEmpty) {
-      return S.of(context).please_enter_a_password;
-    }
-    if (password.length < 6) {
-      _showAlertDialog(S.of(context).password_too_short.toString());
-      return S.of(context).password_too_short;
-    }
-    if (!RegExp(
-            r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&_])[A-Za-z\d@$!%*?&_]{6,}$')
-        .hasMatch(password)) {
-      _showAlertDialog(
-          "${S.of(context).password_invalid.toString()} ${S.of(context).password_type.toString()}");
-      return S.of(context).password_invalid;
-    }
-
-    return null;
-  }
-
-  String? _validateRepeatPassword(String repeatPassword, String password) {
-    if (repeatPassword.isEmpty) {
-      return S.of(context).please_enter_the_password_again;
-    }
-
-    if (password != repeatPassword) {
-      return S.of(context).passwords_do_not_match;
-    }
-    return null;
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    _usernameController = TextEditingController();
-    _emailController = TextEditingController();
-    _passwordController = TextEditingController();
-    _repeatPasswordController = TextEditingController();
-  }
+  final TextEditingController _usernameController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _repeatPasswordController = TextEditingController();
 
   @override
   void dispose() {
@@ -107,7 +44,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
               (route) => false,
             );
           } else if (state is AuthFailure) {
-            _showAlertDialog(state.error);
+            showAlertDialog(context, state.error);
           }
         },
         child: SingleChildScrollView(
@@ -170,7 +107,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         height: screenHeight * 0.01,
                       ),
                       TextformFieldWidget(
-                          validator: (value) => _validatePassword(value!),
+                          validator: (value) => validatePassword(context, value!),
                           obscureText: true,
                           controller: _passwordController,
                           screenWidth: screenWidth),
@@ -190,8 +127,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         height: screenHeight * 0.01,
                       ),
                       TextformFieldWidget(
-                        validator: (value) => _validateRepeatPassword(
-                            value!, _passwordController.text),
+                        validator: (value) => validateRepeatPassword(
+                          context,
+                          value!,
+                          _passwordController.text,
+                        ),
                         obscureText: true,
                         controller: _repeatPasswordController,
                         screenWidth: screenWidth,
@@ -223,8 +163,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             if (_passwordController.text.isEmpty ||
                                 _emailController.text.isEmpty ||
                                 _usernameController.text.isEmpty) {
-                              _showAlertDialog(
-                                  S.of(context).fill_in_all_fields.toString());
+                              showAlertDialog(
+                                  context, S.of(context).fill_in_all_fields);
                             } else {
                               if (_formKey.currentState!.validate()) {
                                 final username =
