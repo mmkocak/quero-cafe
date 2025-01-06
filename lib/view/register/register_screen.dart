@@ -5,6 +5,7 @@ import 'package:quero_cafe/generated/l10n.dart';
 import 'package:quero_cafe/view/widgets/enter_button.dart';
 import 'package:quero_cafe/view/widgets/text_form_field_widget.dart';
 import 'package:quero_cafe/view/mixins/password_validation_mixin.dart';
+import 'package:quero_cafe/view/widgets/custom_alert_dialog.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});
@@ -29,6 +30,13 @@ class _RegisterScreenState extends State<RegisterScreen> with PasswordValidation
     super.dispose();
   }
 
+  void showAlertDialog(String message) {
+    showDialog(
+      context: context,
+      builder: (context) => CustomAlertDialog(message: message),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
@@ -44,7 +52,7 @@ class _RegisterScreenState extends State<RegisterScreen> with PasswordValidation
               (route) => false,
             );
           } else if (state is AuthFailure) {
-            showAlertDialog(context, state.error);
+            showAlertDialog(state.error);
           }
         },
         child: SingleChildScrollView(
@@ -163,8 +171,7 @@ class _RegisterScreenState extends State<RegisterScreen> with PasswordValidation
                             if (_passwordController.text.isEmpty ||
                                 _emailController.text.isEmpty ||
                                 _usernameController.text.isEmpty) {
-                              showAlertDialog(
-                                  context, S.of(context).fill_in_all_fields);
+                              showAlertDialog(S.of(context).fill_in_all_fields);
                             } else {
                               if (_formKey.currentState!.validate()) {
                                 final username =

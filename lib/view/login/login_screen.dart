@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:quero_cafe/core/cubit/locale/locale_cubit.dart';
 import 'package:quero_cafe/generated/l10n.dart';
+import 'package:quero_cafe/view/mixins/password_validation_mixin.dart';
 import 'package:quero_cafe/view/widgets/enter_button.dart';
 import 'package:quero_cafe/view/widgets/text_form_field_widget.dart';
 import 'package:quero_cafe/core/cubit/authentication/authentication_cubit.dart';
+import 'package:quero_cafe/view/widgets/custom_alert_dialog.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -13,31 +15,15 @@ class LoginScreen extends StatefulWidget {
   State<LoginScreen> createState() => _LoginScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _LoginScreenState extends State<LoginScreen> with PasswordValidationMixin {
   final _formKey = GlobalKey<FormState>();
   final _usernameController = TextEditingController();
   final _passwordController = TextEditingController();
 
-  void _showAlertDialog(String message) {
+  void showAlertDialog(String message) {
     showDialog(
       context: context,
-      builder: (context) => AlertDialog(
-        backgroundColor: Colors.black,
-        title: Text(S.of(context).warning, style: TextStyle(color: Colors.white)),
-        content: Text(
-          message,
-          style: TextStyle(color: Colors.white),
-        ),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(context),
-            child: Text(
-              S.of(context).ok,
-              style: TextStyle(color: Color(0xFFB17445)),
-            ),
-          ),
-        ],
-      ),
+      builder: (context) => CustomAlertDialog(message: message),
     );
   }
 
@@ -64,7 +50,7 @@ class _LoginScreenState extends State<LoginScreen> {
               (route) => false,
             );
           } else if (state is AuthFailure) {
-            _showAlertDialog(state.error);
+            showAlertDialog(state.error);
           }
         },
         child: Stack(
