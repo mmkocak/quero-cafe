@@ -13,10 +13,14 @@ class AuthLoading extends AuthState {}
 
 class AuthSuccess extends AuthState {
   final String? token;
-  const AuthSuccess({this.token});
+  final String username;
+  const AuthSuccess({
+    this.token, 
+    required this.username,
+  });
 
   @override
-  List<Object?> get props => [token];
+  List<Object?> get props => [token, username];
 }
 
 class AuthLoggedOut extends AuthState {}

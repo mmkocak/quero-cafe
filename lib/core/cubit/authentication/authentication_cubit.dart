@@ -7,7 +7,10 @@ import 'package:firebase_auth/firebase_auth.dart';
 part 'auth_state.dart';
 
 class AuthenticationCubit extends Cubit<AuthState> {
-  AuthenticationCubit() : super(AuthInitial());
+  AuthenticationCubit() : super(AuthInitial()) {
+    // Constructor'da otomatik kontrol başlat
+    checkLoginStatus();
+  }
 
   static const String baseUrl = "http://10.0.2.2:5000";
   final _auth = FirebaseAuth.instance;
@@ -19,12 +22,14 @@ class AuthenticationCubit extends Cubit<AuthState> {
       final currentUser = _auth.currentUser;
       if (currentUser != null) {
         final token = await currentUser.getIdToken();
-        emit(AuthSuccess(token: token));
+        final email = currentUser.email ?? '';
+        final username = email.split('@')[0];
+        emit(AuthSuccess(token: token, username: username));
       } else {
-        emit(AuthInitial());
+        emit(AuthInitial()); // AuthLoggedOut yerine AuthInitial kullanıyoruz
       }
     } catch (e) {
-      emit(AuthFailure(e.toString()));
+      emit(AuthInitial()); // Hata durumunda da AuthInitial
     }
   }
 
@@ -58,7 +63,7 @@ class AuthenticationCubit extends Cubit<AuthState> {
 
         if (response.statusCode == 200) {
           final token = await userCredential.user!.getIdToken();
-          emit(AuthSuccess(token: token));
+          emit(AuthSuccess(token: token, username: username));
         } else {
           // Backend kaydı başarısız olursa Firebase'den de sil
           await userCredential.user?.delete();
@@ -96,7 +101,7 @@ class AuthenticationCubit extends Cubit<AuthState> {
         String token = data['token'];
         // Backend doğrulaması başarılıysa Firebase'de oturum aç
         await _auth.signInWithCustomToken(token);
-        emit(AuthSuccess(token: token));
+        emit(AuthSuccess(token: token, username: username));
       } else {
         final error = jsonDecode(response.body)['error'] ?? 'Bilinmeyen hata oluştu.';
         emit(AuthFailure(error));
@@ -109,15 +114,8 @@ class AuthenticationCubit extends Cubit<AuthState> {
   /// Kullanıcı çıkış işlemi
   Future<void> logoutUser() async {
     try {
-      // Backend'e çıkış bildir
-      await http.post(
-        Uri.parse("$baseUrl/logout"),
-        headers: {'Content-Type': 'application/json'},
-      );
-      
-      // Firebase'den çıkış yap
       await _auth.signOut();
-      emit(AuthInitial());
+      emit(AuthInitial()); // Çıkış yapınca AuthInitial
     } catch (e) {
       emit(AuthFailure("Çıkış işlemi başarısız: ${e.toString()}"));
     }

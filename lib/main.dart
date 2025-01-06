@@ -19,7 +19,6 @@ void main() async {
   );
   
   final authCubit = AuthenticationCubit();
-  await authCubit.checkLoginStatus();
 
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
@@ -31,13 +30,14 @@ void main() async {
         BlocProvider.value(value: authCubit),
         BlocProvider(create: (context) => NavigationCubit()),
       ],
-      child: const MyApp(),
+      child: MyApp(),
     ));
   });
 }
 
-class MyApp extends StatelessWidget with BuildInitialScreen {
-  const MyApp({super.key});
+class MyApp extends StatelessWidget {
+  final _buildInitialScreen = BuildInitialScreen();
+   MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -60,13 +60,11 @@ class MyApp extends StatelessWidget with BuildInitialScreen {
                 colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
                 useMaterial3: true,
               ),
-              home: buildInitialScreen(authState),
+              home: _buildInitialScreen.buildInitialScreen(authState),
             );
           },
         );
       },
     );
   }
-
- 
 }
