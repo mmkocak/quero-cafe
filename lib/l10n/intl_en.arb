@@ -26,8 +26,16 @@
      "so_and_so": "so and so",
      "news": "News",
      "latte": "Latte",
-     "with_milk": "with milk"
-
-
-
+     "with_milk": "with milk",
+     "details": "Details",
+     "with_chocolate": "with Chocolate",
+     "description": "Description",
+     "coffee_description": "A cappuccino is a drink of approximately 10% espresso coffee, 32% fresh milk and 56% coffee, we use special beans...",
+     "read_more": "Read more",
+     "available_sizes": "Available sizes",
+     "price": "Price",
+     "add_to_cart": "Add to cart",
+     "small": "Small",
+     "medium": "Medium",
+     "large": "Large"
 }

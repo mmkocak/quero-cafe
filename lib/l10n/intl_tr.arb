@@ -26,5 +26,16 @@
   "so_and_so": "falan filan",
   "news": "Haberler",
   "latte" :"Latte",
-  "with_milk": "sütlü"
-  }
+  "with_milk": "sütlü",
+  "details": "Detaylar",
+  "with_chocolate": "Çikolatalı",
+  "description": "Açıklama",
+  "coffee_description": "Cappuccino, yaklaşık %10 espresso kahve, %32 taze süt ve %56 kahveden oluşan, özel çekirdekler kullandığımız bir içecektir...",
+  "read_more": "Devamını oku",
+  "available_sizes": "Mevcut boyutlar",
+  "price": "Fiyat",
+  "add_to_cart": "Sepete ekle",
+  "small": "Küçük",
+  "medium": "Orta",
+  "large": "Büyük"
+}

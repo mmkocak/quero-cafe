@@ -27,12 +27,21 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Don\'t have an account yet?"),
         "I_already_have_an_account":
             MessageLookupByLibrary.simpleMessage("I already have an account."),
+        "add_to_cart": MessageLookupByLibrary.simpleMessage("Add to cart"),
+        "available_sizes":
+            MessageLookupByLibrary.simpleMessage("Available sizes"),
+        "coffee_description": MessageLookupByLibrary.simpleMessage(
+            "A cappuccino is a drink of approximately 10% espresso coffee, 32% fresh milk and 56% coffee, we use special beans..."),
+        "description": MessageLookupByLibrary.simpleMessage("Description"),
+        "details": MessageLookupByLibrary.simpleMessage("Details"),
         "e_mail": MessageLookupByLibrary.simpleMessage("e-mail"),
         "enter": MessageLookupByLibrary.simpleMessage("Enter"),
         "fill_in_all_fields":
             MessageLookupByLibrary.simpleMessage("Fill in all fields"),
+        "large": MessageLookupByLibrary.simpleMessage("Large"),
         "latte": MessageLookupByLibrary.simpleMessage("Latte"),
         "login": MessageLookupByLibrary.simpleMessage("Login"),
+        "medium": MessageLookupByLibrary.simpleMessage("Medium"),
         "news": MessageLookupByLibrary.simpleMessage("News"),
         "ok": MessageLookupByLibrary.simpleMessage("Ok"),
         "onboarding_description": MessageLookupByLibrary.simpleMessage(
@@ -54,14 +63,19 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("please enter a password"),
         "please_enter_the_password_again": MessageLookupByLibrary.simpleMessage(
             "please enter the password again"),
+        "price": MessageLookupByLibrary.simpleMessage("Price"),
+        "read_more": MessageLookupByLibrary.simpleMessage("Read more"),
         "register": MessageLookupByLibrary.simpleMessage("Sign up"),
         "repeat_password":
             MessageLookupByLibrary.simpleMessage("Repeat password"),
         "sign_up": MessageLookupByLibrary.simpleMessage("Sign up"),
+        "small": MessageLookupByLibrary.simpleMessage("Small"),
         "so_and_so": MessageLookupByLibrary.simpleMessage("so and so"),
         "username": MessageLookupByLibrary.simpleMessage("Username"),
         "warning": MessageLookupByLibrary.simpleMessage("Warning"),
         "welcome": MessageLookupByLibrary.simpleMessage("Welcome"),
+        "with_chocolate":
+            MessageLookupByLibrary.simpleMessage("with Chocolate"),
         "with_milk": MessageLookupByLibrary.simpleMessage("with milk")
       };
 }

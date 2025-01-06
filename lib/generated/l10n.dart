@@ -329,6 +329,116 @@ class S {
       args: [],
     );
   }
+
+  /// `Details`
+  String get details {
+    return Intl.message(
+      'Details',
+      name: 'details',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `with Chocolate`
+  String get with_chocolate {
+    return Intl.message(
+      'with Chocolate',
+      name: 'with_chocolate',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Description`
+  String get description {
+    return Intl.message(
+      'Description',
+      name: 'description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `A cappuccino is a drink of approximately 10% espresso coffee, 32% fresh milk and 56% coffee, we use special beans...`
+  String get coffee_description {
+    return Intl.message(
+      'A cappuccino is a drink of approximately 10% espresso coffee, 32% fresh milk and 56% coffee, we use special beans...',
+      name: 'coffee_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Read more`
+  String get read_more {
+    return Intl.message(
+      'Read more',
+      name: 'read_more',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Available sizes`
+  String get available_sizes {
+    return Intl.message(
+      'Available sizes',
+      name: 'available_sizes',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Price`
+  String get price {
+    return Intl.message(
+      'Price',
+      name: 'price',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add to cart`
+  String get add_to_cart {
+    return Intl.message(
+      'Add to cart',
+      name: 'add_to_cart',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Small`
+  String get small {
+    return Intl.message(
+      'Small',
+      name: 'small',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Medium`
+  String get medium {
+    return Intl.message(
+      'Medium',
+      name: 'medium',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Large`
+  String get large {
+    return Intl.message(
+      'Large',
+      name: 'large',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

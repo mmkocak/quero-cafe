@@ -27,12 +27,21 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Henüz bir hesabın yok mu?"),
         "I_already_have_an_account":
             MessageLookupByLibrary.simpleMessage("Zaten bir hesabım var."),
+        "add_to_cart": MessageLookupByLibrary.simpleMessage("Sepete ekle"),
+        "available_sizes":
+            MessageLookupByLibrary.simpleMessage("Mevcut boyutlar"),
+        "coffee_description": MessageLookupByLibrary.simpleMessage(
+            "Cappuccino, yaklaşık %10 espresso kahve, %32 taze süt ve %56 kahveden oluşan, özel çekirdekler kullandığımız bir içecektir..."),
+        "description": MessageLookupByLibrary.simpleMessage("Açıklama"),
+        "details": MessageLookupByLibrary.simpleMessage("Detaylar"),
         "e_mail": MessageLookupByLibrary.simpleMessage("e-mail"),
         "enter": MessageLookupByLibrary.simpleMessage("Giriş"),
         "fill_in_all_fields": MessageLookupByLibrary.simpleMessage(
             "Lütfen tüm alanları doldurun"),
+        "large": MessageLookupByLibrary.simpleMessage("Büyük"),
         "latte": MessageLookupByLibrary.simpleMessage("Latte"),
         "login": MessageLookupByLibrary.simpleMessage("Giriş Yap"),
+        "medium": MessageLookupByLibrary.simpleMessage("Orta"),
         "news": MessageLookupByLibrary.simpleMessage("Haberler"),
         "ok": MessageLookupByLibrary.simpleMessage("Tamam"),
         "onboarding_description": MessageLookupByLibrary.simpleMessage(
@@ -54,14 +63,18 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Lütfen bir şifre girin"),
         "please_enter_the_password_again": MessageLookupByLibrary.simpleMessage(
             "Lütfen şifrenizi tekrar girin"),
+        "price": MessageLookupByLibrary.simpleMessage("Fiyat"),
+        "read_more": MessageLookupByLibrary.simpleMessage("Devamını oku"),
         "register": MessageLookupByLibrary.simpleMessage("Kayıt Ol"),
         "repeat_password":
             MessageLookupByLibrary.simpleMessage("Şifreyi tekrar girin"),
         "sign_up": MessageLookupByLibrary.simpleMessage("Kayıt Ol"),
+        "small": MessageLookupByLibrary.simpleMessage("Küçük"),
         "so_and_so": MessageLookupByLibrary.simpleMessage("falan filan"),
         "username": MessageLookupByLibrary.simpleMessage("Kullanıcı Adı"),
         "warning": MessageLookupByLibrary.simpleMessage("Uyarı"),
         "welcome": MessageLookupByLibrary.simpleMessage("Hoşgeldin"),
+        "with_chocolate": MessageLookupByLibrary.simpleMessage("Çikolatalı"),
         "with_milk": MessageLookupByLibrary.simpleMessage("sütlü")
       };
 }

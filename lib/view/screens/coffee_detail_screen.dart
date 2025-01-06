@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:quero_cafe/core/cubit/coffee_size/coffee_size_cubit.dart';
+import 'package:quero_cafe/generated/l10n.dart';
 
 class CoffeeDetailScreen extends StatelessWidget {
   final String name;
@@ -34,8 +35,8 @@ class CoffeeDetailScreen extends StatelessWidget {
                 icon: const Icon(Icons.arrow_back, color: Colors.black),
                 onPressed: () => Navigator.pop(context),
               ),
-              title: const Text(
-                'Detalhes',
+              title: Text(
+                S.of(context).details,
                 style: TextStyle(color: Colors.black),
               ),
             ),
@@ -107,7 +108,7 @@ class CoffeeDetailScreen extends StatelessWidget {
                     ],
                   ),
                   Text(
-                    'com Chocolate',
+                    S.of(context).with_chocolate,
                     style: TextStyle(
                       color: Colors.grey[600],
                       fontSize: screenWidth * 0.035,
@@ -117,7 +118,7 @@ class CoffeeDetailScreen extends StatelessWidget {
                   
                   // Açıklama
                   Text(
-                    'Descrição',
+                    S.of(context).description,
                     style: TextStyle(
                       fontSize: screenWidth * 0.045,
                       fontWeight: FontWeight.bold,
@@ -125,14 +126,14 @@ class CoffeeDetailScreen extends StatelessWidget {
                   ),
                   SizedBox(height: screenHeight * 0.01),
                   Text(
-                    'Um cappuccino é uma bebida de aproximadamente, sendo 10% de café expresso e 32% de leite de fresco e 56% de café, utilizamos grãos especiais...',
+                    S.of(context).coffee_description,
                     style: TextStyle(
                       color: Colors.grey[600],
                       fontSize: screenWidth * 0.035,
                     ),
                   ),
                   Text(
-                    'Ler mais',
+                    S.of(context).read_more,
                     style: TextStyle(
                       color: Color(0xFFB17445),
                       fontSize: screenWidth * 0.035,
@@ -143,7 +144,7 @@ class CoffeeDetailScreen extends StatelessWidget {
                   
                   // Boyut Seçimi
                   Text(
-                    'Tamanhos disponíveis',
+                    S.of(context).available_sizes,
                     style: TextStyle(
                       fontSize: screenWidth * 0.045,
                       fontWeight: FontWeight.bold,
@@ -176,7 +177,7 @@ class CoffeeDetailScreen extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              'Valor',
+                              S.of(context).price,
                               style: TextStyle(
                                 color: Colors.grey[600],
                                 fontSize: screenWidth * 0.035,
@@ -205,7 +206,7 @@ class CoffeeDetailScreen extends StatelessWidget {
                             ),
                           ),
                           child: Text(
-                            'Adicionar no carrinho',
+                            S.of(context).add_to_cart,
                             style: TextStyle(
                               fontSize: screenWidth * 0.04,
                               color: Colors.white,
@@ -225,6 +226,10 @@ class CoffeeDetailScreen extends StatelessWidget {
   }
 
   Widget _buildSizeButton(BuildContext context, String size, bool isSelected) {
+    String sizeText = size == 'P' ? S.of(context).small :
+                      size == 'M' ? S.of(context).medium :
+                      S.of(context).large;
+                      
     return GestureDetector(
       onTap: () => context.read<CoffeeSizeCubit>().selectSize(size),
       child: Container(
@@ -238,7 +243,7 @@ class CoffeeDetailScreen extends StatelessWidget {
           ),
         ),
         child: Text(
-          size,
+          sizeText,
           style: TextStyle(
             color: isSelected ? Colors.white : Color(0xFFB17445),
             fontWeight: FontWeight.bold,

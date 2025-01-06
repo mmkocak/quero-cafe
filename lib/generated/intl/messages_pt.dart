@@ -27,12 +27,22 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Ainda não possuí uma conta?"),
         "I_already_have_an_account":
             MessageLookupByLibrary.simpleMessage("Ja possuo uma conta."),
+        "add_to_cart":
+            MessageLookupByLibrary.simpleMessage("Adicionar no carrinho"),
+        "available_sizes":
+            MessageLookupByLibrary.simpleMessage("Tamanhos disponíveis"),
+        "coffee_description": MessageLookupByLibrary.simpleMessage(
+            "Um cappuccino é uma bebida de aproximadamente, sendo 10% de café expresso e 32% de leite de fresco e 56% de café, utilizamos grãos especiais..."),
+        "description": MessageLookupByLibrary.simpleMessage("Descrição"),
+        "details": MessageLookupByLibrary.simpleMessage("Detalhes"),
         "e_mail": MessageLookupByLibrary.simpleMessage("e-mail"),
         "enter": MessageLookupByLibrary.simpleMessage("Entrar"),
         "fill_in_all_fields":
             MessageLookupByLibrary.simpleMessage("Preencha todos os campos"),
+        "large": MessageLookupByLibrary.simpleMessage("Grande"),
         "latte": MessageLookupByLibrary.simpleMessage("coffee Latte"),
         "login": MessageLookupByLibrary.simpleMessage("Login"),
+        "medium": MessageLookupByLibrary.simpleMessage("Médio"),
         "news": MessageLookupByLibrary.simpleMessage("Novidades"),
         "ok": MessageLookupByLibrary.simpleMessage("Ok"),
         "onboarding_description": MessageLookupByLibrary.simpleMessage(
@@ -54,14 +64,18 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("por favor insira uma senha"),
         "please_enter_the_password_again": MessageLookupByLibrary.simpleMessage(
             "por favor insira a senha novamente"),
+        "price": MessageLookupByLibrary.simpleMessage("Valor"),
+        "read_more": MessageLookupByLibrary.simpleMessage("Ler mais"),
         "register": MessageLookupByLibrary.simpleMessage("Cadastro"),
         "repeat_password":
             MessageLookupByLibrary.simpleMessage("Repita a senha"),
         "sign_up": MessageLookupByLibrary.simpleMessage("Cadastre-se"),
+        "small": MessageLookupByLibrary.simpleMessage("Pequeno"),
         "so_and_so": MessageLookupByLibrary.simpleMessage("fulano de tal"),
         "username": MessageLookupByLibrary.simpleMessage("Usuário"),
         "warning": MessageLookupByLibrary.simpleMessage("Aviso"),
         "welcome": MessageLookupByLibrary.simpleMessage("Bem-vindo"),
+        "with_chocolate": MessageLookupByLibrary.simpleMessage("com Chocolate"),
         "with_milk": MessageLookupByLibrary.simpleMessage("com leite")
       };
 }

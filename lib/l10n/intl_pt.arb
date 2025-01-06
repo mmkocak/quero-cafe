@@ -26,9 +26,16 @@
   "so_and_so": "fulano de tal",
   "news": "Novidades",
   "latte": "coffee Latte",
-  "with_milk": "com leite"
-
-
-
-
+  "with_milk": "com leite",
+  "details": "Detalhes",
+  "with_chocolate": "com Chocolate",
+  "description": "Descrição",
+  "coffee_description": "Um cappuccino é uma bebida de aproximadamente, sendo 10% de café expresso e 32% de leite de fresco e 56% de café, utilizamos grãos especiais...",
+  "read_more": "Ler mais",
+  "available_sizes": "Tamanhos disponíveis",
+  "price": "Valor",
+  "add_to_cart": "Adicionar no carrinho",
+  "small": "Pequeno",
+  "medium": "Médio",
+  "large": "Grande"
 }
