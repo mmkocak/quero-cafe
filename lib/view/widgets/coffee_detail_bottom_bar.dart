@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:quero_cafe/generated/l10n.dart';
+import 'package:quero_cafe/core/cubit/coffee_size/coffee_size_cubit.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CoffeeDetailBottomBar extends StatelessWidget {
   final double price;
@@ -38,6 +40,7 @@ class CoffeeDetailBottomBar extends StatelessWidget {
           ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisSize: MainAxisSize.min,
             children: [
               Column(
                 mainAxisSize: MainAxisSize.min,
@@ -50,16 +53,22 @@ class CoffeeDetailBottomBar extends StatelessWidget {
                       fontSize: screenWidth * 0.035,
                     ),
                   ),
-                  Text(
-                    price.toStringAsFixed(2),
-                    style: TextStyle(
-                      fontSize: screenWidth * 0.06,
-                      fontWeight: FontWeight.bold,
-                      color: const Color(0xFFB17445),
-                    ),
+                  BlocBuilder<CoffeeSizeCubit, CoffeeSizeState>(
+                    builder: (context, state) {
+                      final adjustedPrice = price * state.priceMultiplier;
+                      return Text(
+                        adjustedPrice.toStringAsFixed(2),
+                        style: TextStyle(
+                          fontSize: screenWidth * 0.06,
+                          fontWeight: FontWeight.bold,
+                          color: const Color(0xFFB17445),
+                        ),
+                      );
+                    },
                   ),
                 ],
               ),
+              const Spacer(),
               ElevatedButton(
                 onPressed: () {},
                 style: ElevatedButton.styleFrom(
