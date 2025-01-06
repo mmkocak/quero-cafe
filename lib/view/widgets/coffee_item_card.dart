@@ -8,12 +8,12 @@ class CoffeeItemCard extends StatelessWidget {
   final String imageUrl;
 
   const CoffeeItemCard({
-    Key? key,
+    super.key,
     required this.name,
     required this.description,
     required this.price,
     required this.imageUrl,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +37,7 @@ class CoffeeItemCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(15),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(0.1),
+              color: Colors.black.withAlpha(26),
               blurRadius: 5,
               offset: const Offset(0, 2),
             ),

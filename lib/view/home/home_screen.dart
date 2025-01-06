@@ -4,7 +4,7 @@ import 'package:quero_cafe/view/widgets/coffee_item_card.dart';
 import 'package:quero_cafe/view/widgets/coffee_card.dart';
 
 class HomeScreen extends StatelessWidget with CoffeeDataMixin {
-  HomeScreen({Key? key}) : super(key: key);
+  HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
