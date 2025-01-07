@@ -63,7 +63,7 @@ class MapCubit extends Cubit<MapState> {
           height: 80,
           child: const Icon(
             Icons.my_location,
-            color: Colors.blue,
+            color: Color(0xFFB17445),
             size: 40,
           ),
         ),
