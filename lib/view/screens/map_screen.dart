@@ -4,6 +4,9 @@ import 'package:latlong2/latlong.dart';
 import 'package:location/location.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:quero_cafe/core/cubit/navigation/navigation_cubit.dart';
+import 'package:flutter/services.dart';
 
 class MapScreen extends StatefulWidget {
   const MapScreen({super.key});
@@ -137,6 +140,67 @@ class _MapScreenState extends State<MapScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
+      appBar: AppBar(
+        backgroundColor: Colors.white.withAlpha(0),
+        elevation: 0,
+        systemOverlayStyle: const SystemUiOverlayStyle(
+          statusBarColor: Colors.transparent,
+          statusBarIconBrightness: Brightness.dark,
+        ),
+        leading: Container(
+          margin: const EdgeInsets.only(left: 16),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(14),
+            
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withAlpha(25),
+                blurRadius: 8,
+                offset: const Offset(0, 2),
+              ),
+            ],
+          ),
+          child: IconButton(
+            icon: const Icon(Icons.arrow_back, color: Colors.black),
+            onPressed: () => context.read<NavigationCubit>().changeIndex(0),
+          ),
+        ),
+        actions: [
+          Container(
+            margin: const EdgeInsets.only(right: 16),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(14),
+              
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withAlpha(25),
+                  blurRadius: 8,
+                  offset: const Offset(0, 2),
+                ),
+              ],
+            ),
+            child: IconButton(
+              icon: const Icon(Icons.my_location, color: Colors.black),
+              onPressed: () async {
+                if (_userLocation != null) {
+                  _mapController.move(_userLocation!, 15);
+                } else {
+                  final locationData = await location.getLocation();
+                  if (locationData.latitude != null && locationData.longitude != null) {
+                    _mapController.move(
+                      LatLng(locationData.latitude!, locationData.longitude!),
+                      15,
+                    );
+                  }
+                }
+              },
+            ),
+          ),
+        ],
+      ),
       body: FlutterMap(
         mapController: _mapController,
         options: MapOptions(
