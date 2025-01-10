@@ -28,6 +28,7 @@ class _CartScreenState extends State<CartScreen> {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16),
                   child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Container(
                         decoration: BoxDecoration(
@@ -39,18 +40,7 @@ class _CartScreenState extends State<CartScreen> {
                           onPressed: () => context.read<NavigationCubit>().changeIndex(0),
                         ),
                       ),
-                      const Expanded(
-                        child: Text(
-                          'Pedidos do cliente',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 18,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                      ),
-                      const SizedBox(width: 48),
+                      const Spacer(),
                     ],
                   ),
                 ),
@@ -112,7 +102,7 @@ class _CartScreenState extends State<CartScreen> {
             ),
           ),
           Transform.translate(
-            offset: const Offset(0, -30),
+            offset: const Offset(0, -60),
             child: Container(
               margin: const EdgeInsets.symmetric(horizontal: 16),
               padding: const EdgeInsets.all(16),
@@ -148,45 +138,59 @@ class _CartScreenState extends State<CartScreen> {
                   const SizedBox(height: 12),
                   Row(
                     children: [
-                      TextButton.icon(
-                        onPressed: () {},
-                        icon: const Icon(
-                          Icons.edit_location,
-                          color: Color(0xFFB17445),
-                          size: 20,
+                      Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                        decoration: BoxDecoration(
+                          border: Border.all(color: Colors.black12),
+                          borderRadius: BorderRadius.circular(20),
                         ),
-                        label: const Text(
-                          'Editar Endereço',
-                          style: TextStyle(
-                            color: Color(0xFFB17445),
-                            fontSize: 14,
+                        child: GestureDetector(
+                          onTap: () {},
+                          child: Row(
+                            children: [
+                              const Icon(
+                                Icons.edit_location_outlined,
+                                size: 20,
+                                color: Colors.black,
+                              ),
+                              const SizedBox(width: 4),
+                              const Text(
+                                'Editar Endereço',
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 14,
+                                ),
+                              ),
+                            ],
                           ),
-                        ),
-                        style: TextButton.styleFrom(
-                          padding: EdgeInsets.zero,
-                          minimumSize: Size.zero,
-                          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                         ),
                       ),
-                      const SizedBox(width: 24),
-                      TextButton.icon(
-                        onPressed: () {},
-                        icon: const Icon(
-                          Icons.note_add,
-                          color: Color(0xFFB17445),
-                          size: 20,
+                      const SizedBox(width: 12),
+                      Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                        decoration: BoxDecoration(
+                           border: Border.all(color: Colors.black12),
+                          borderRadius: BorderRadius.circular(20),
                         ),
-                        label: const Text(
-                          'Adicionar Nota',
-                          style: TextStyle(
-                            color: Color(0xFFB17445),
-                            fontSize: 14,
+                        child: GestureDetector(
+                          onTap: () {},
+                          child: Row(
+                            children: [
+                              const Icon(
+                                Icons.note_add_outlined,
+                                size: 20,
+                                color: Colors.black,
+                              ),
+                              const SizedBox(width: 4),
+                              const Text(
+                                'Adicionar Nota',
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 14,
+                                ),
+                              ),
+                            ],
                           ),
-                        ),
-                        style: TextButton.styleFrom(
-                          padding: EdgeInsets.zero,
-                          minimumSize: Size.zero,
-                          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                         ),
                       ),
                     ],
