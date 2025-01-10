@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:quero_cafe/core/cubit/navigation/navigation_cubit.dart';
 
 class CartScreen extends StatefulWidget {
   const CartScreen({super.key});
@@ -16,153 +17,182 @@ class _CartScreenState extends State<CartScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey[100],
-      appBar: AppBar(
-        backgroundColor: const Color(0xFFB17445),
-        elevation: 0,
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.white),
-          onPressed: () => Navigator.pop(context),
-        ),
-        title: const Text(
-          'Pedidos do cliente',
-          style: TextStyle(color: Colors.white),
-        ),
-      ),
       body: Column(
         children: [
           Container(
+            height: MediaQuery.of(context).padding.top + 280,
             color: const Color(0xFFB17445),
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-            child: Container(
-              decoration: BoxDecoration(
-                color: Colors.white.withOpacity(0.2),
-                borderRadius: BorderRadius.circular(25),
-              ),
-              child: Row(
-                children: [
-                  Expanded(
-                    child: GestureDetector(
-                      onTap: () => setState(() => isDelivery = true),
-                      child: Container(
-                        padding: const EdgeInsets.symmetric(vertical: 12),
+            child: Column(
+              children: [
+                SizedBox(height: MediaQuery.of(context).padding.top + 10),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  child: Row(
+                    children: [
+                      Container(
                         decoration: BoxDecoration(
-                          color: isDelivery ? Colors.white : Colors.transparent,
-                          borderRadius: BorderRadius.circular(25),
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(16),
                         ),
+                        child: IconButton(
+                          icon: const Icon(Icons.arrow_back_ios_new, color: Colors.black),
+                          onPressed: () => context.read<NavigationCubit>().changeIndex(0),
+                        ),
+                      ),
+                      const Expanded(
                         child: Text(
-                          'Entrega',
+                          'Pedidos do cliente',
                           textAlign: TextAlign.center,
                           style: TextStyle(
-                            color: isDelivery ? const Color(0xFFB17445) : Colors.white,
+                            color: Colors.white,
+                            fontSize: 18,
                             fontWeight: FontWeight.w500,
                           ),
                         ),
                       ),
+                      const SizedBox(width: 48),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 16),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.white.withAlpha(51),
+                      borderRadius: BorderRadius.circular(25),
+                    ),
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: GestureDetector(
+                            onTap: () => setState(() => isDelivery = true),
+                            child: Container(
+                              padding: const EdgeInsets.symmetric(vertical: 12),
+                              decoration: BoxDecoration(
+                                color: isDelivery ? Colors.white : Colors.transparent,
+                                borderRadius: BorderRadius.circular(25),
+                              ),
+                              child: Text(
+                                'Entrega',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  color: isDelivery ? const Color(0xFFB17445) : Colors.white,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        Expanded(
+                          child: GestureDetector(
+                            onTap: () => setState(() => isDelivery = false),
+                            child: Container(
+                              padding: const EdgeInsets.symmetric(vertical: 12),
+                              decoration: BoxDecoration(
+                                color: !isDelivery ? Colors.white : Colors.transparent,
+                                borderRadius: BorderRadius.circular(25),
+                              ),
+                              child: Text(
+                                'Retirada',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  color: !isDelivery ? const Color(0xFFB17445) : Colors.white,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
-                  Expanded(
-                    child: GestureDetector(
-                      onTap: () => setState(() => isDelivery = false),
-                      child: Container(
-                        padding: const EdgeInsets.symmetric(vertical: 12),
-                        decoration: BoxDecoration(
-                          color: !isDelivery ? Colors.white : Colors.transparent,
-                          borderRadius: BorderRadius.circular(25),
-                        ),
-                        child: Text(
-                          'Retirada',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            color: !isDelivery ? const Color(0xFFB17445) : Colors.white,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                      ),
-                    ),
+                ),
+              ],
+            ),
+          ),
+          Transform.translate(
+            offset: const Offset(0, -30),
+            child: Container(
+              margin: const EdgeInsets.symmetric(horizontal: 16),
+              padding: const EdgeInsets.all(16),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(12),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.05),
+                    blurRadius: 10,
+                    offset: const Offset(0, 2),
                   ),
                 ],
               ),
-            ),
-          ),
-          Container(
-            margin: const EdgeInsets.all(16),
-            padding: const EdgeInsets.all(16),
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(12),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.black.withOpacity(0.05),
-                  blurRadius: 10,
-                  offset: const Offset(0, 2),
-                ),
-              ],
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  isDelivery ? 'Endereço de Entrega' : 'Endereço de Retirada',
-                  style: const TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w500,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    isDelivery ? 'Endereço de Entrega' : 'Endereço de Retirada',
+                    style: const TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500,
+                    ),
                   ),
-                ),
-                const SizedBox(height: 8),
-                const Text(
-                  'Rua Californication, 666 - Cohab Z, RS',
-                  style: TextStyle(
-                    color: Colors.grey,
-                    fontSize: 14,
+                  const SizedBox(height: 8),
+                  const Text(
+                    'Rua Californication, 666 - Cohab Z, RS',
+                    style: TextStyle(
+                      color: Colors.grey,
+                      fontSize: 14,
+                    ),
                   ),
-                ),
-                const SizedBox(height: 12),
-                Row(
-                  children: [
-                    TextButton.icon(
-                      onPressed: () {},
-                      icon: const Icon(
-                        Icons.edit_location,
-                        color: Color(0xFFB17445),
-                        size: 20,
-                      ),
-                      label: const Text(
-                        'Editar Endereço',
-                        style: TextStyle(
+                  const SizedBox(height: 12),
+                  Row(
+                    children: [
+                      TextButton.icon(
+                        onPressed: () {},
+                        icon: const Icon(
+                          Icons.edit_location,
                           color: Color(0xFFB17445),
-                          fontSize: 14,
+                          size: 20,
+                        ),
+                        label: const Text(
+                          'Editar Endereço',
+                          style: TextStyle(
+                            color: Color(0xFFB17445),
+                            fontSize: 14,
+                          ),
+                        ),
+                        style: TextButton.styleFrom(
+                          padding: EdgeInsets.zero,
+                          minimumSize: Size.zero,
+                          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                         ),
                       ),
-                      style: TextButton.styleFrom(
-                        padding: EdgeInsets.zero,
-                        minimumSize: Size.zero,
-                        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                      ),
-                    ),
-                    const SizedBox(width: 24),
-                    TextButton.icon(
-                      onPressed: () {},
-                      icon: const Icon(
-                        Icons.note_add,
-                        color: Color(0xFFB17445),
-                        size: 20,
-                      ),
-                      label: const Text(
-                        'Adicionar Nota',
-                        style: TextStyle(
+                      const SizedBox(width: 24),
+                      TextButton.icon(
+                        onPressed: () {},
+                        icon: const Icon(
+                          Icons.note_add,
                           color: Color(0xFFB17445),
-                          fontSize: 14,
+                          size: 20,
+                        ),
+                        label: const Text(
+                          'Adicionar Nota',
+                          style: TextStyle(
+                            color: Color(0xFFB17445),
+                            fontSize: 14,
+                          ),
+                        ),
+                        style: TextButton.styleFrom(
+                          padding: EdgeInsets.zero,
+                          minimumSize: Size.zero,
+                          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                         ),
                       ),
-                      style: TextButton.styleFrom(
-                        padding: EdgeInsets.zero,
-                        minimumSize: Size.zero,
-                        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                      ),
-                    ),
-                  ],
-                ),
-              ],
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
           Expanded(
