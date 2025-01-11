@@ -1,7 +1,9 @@
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:quero_cafe/presentation/bloc/location/location_bloc.dart';
+import 'injection_container.dart' as di;
+import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:quero_cafe/core/cubit/authentication/authentication_cubit.dart';
 import 'package:quero_cafe/core/cubit/locale/locale_cubit.dart';
@@ -21,8 +23,7 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-
-  final authCubit = AuthenticationCubit();
+  await di.init();
 
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
@@ -31,12 +32,15 @@ void main() async {
     runApp(MultiBlocProvider(
       providers: [
         BlocProvider(create: (context) => LocaleCubit()),
-        BlocProvider.value(value: authCubit),
+        BlocProvider(create: (context) => AuthenticationCubit()),
         BlocProvider(create: (context) => NavigationCubit()),
         BlocProvider(create: (context) => MapCubit()),
         BlocProvider(create: (context) => CartCubit()),
         BlocProvider(create: (context) => CoffeeSizeCubit()),
         BlocProvider(create: (context) => DeliveryCubit()),
+        BlocProvider(
+          create: (_) => di.sl<LocationBloc>(),
+        ),
       ],
       child: MyApp(),
     ));
@@ -65,7 +69,8 @@ class MyApp extends StatelessWidget {
               supportedLocales: S.delegate.supportedLocales,
               title: 'Quero Cafe',
               theme: ThemeData(
-                colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+                colorScheme:
+                    ColorScheme.fromSeed(seedColor: const Color(0xFFB17445)),
                 useMaterial3: true,
               ),
               home: _buildInitialScreen.buildInitialScreen(authState),
