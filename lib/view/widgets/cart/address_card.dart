@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:quero_cafe/core/cubit/map/map_cubit.dart';
+import 'package:quero_cafe/view/screens/map_screen.dart';
+import 'package:latlong2/latlong.dart';
 
 class AddressCard extends StatelessWidget {
   final bool isDelivery;
@@ -7,6 +11,20 @@ class AddressCard extends StatelessWidget {
     super.key,
     required this.isDelivery,
   });
+
+  void _navigateToMap(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => const MapScreen(),
+      ),
+    );
+  }
+
+  String _formatLocation(LatLng? location) {
+    if (location == null) return 'Selecione um endereço';
+    return '${location.latitude.toStringAsFixed(6)}, ${location.longitude.toStringAsFixed(6)}';
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -37,12 +55,16 @@ class AddressCard extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 8),
-            const Text(
-              'Rua Californication, 666 - Cohab Z, RS',
-              style: TextStyle(
-                color: Colors.grey,
-                fontSize: 14,
-              ),
+            BlocBuilder<MapCubit, MapState>(
+              builder: (context, state) {
+                return Text(
+                  _formatLocation(state.userLocation),
+                  style: const TextStyle(
+                    color: Colors.grey,
+                    fontSize: 14,
+                  ),
+                );
+              },
             ),
             const SizedBox(height: 12),
             Row(
@@ -54,7 +76,7 @@ class AddressCard extends StatelessWidget {
                     borderRadius: BorderRadius.circular(20),
                   ),
                   child: GestureDetector(
-                    onTap: () {},
+                    onTap: () => _navigateToMap(context),
                     child: Row(
                       children: const [
                         Icon(
@@ -109,4 +131,4 @@ class AddressCard extends StatelessWidget {
       ),
     );
   }
-} 
+}
