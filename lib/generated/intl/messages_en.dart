@@ -31,15 +31,24 @@ class MessageLookup extends MessageLookupByLibrary {
         "available_sizes":
             MessageLookupByLibrary.simpleMessage("Available sizes"),
         "cartAddCoupon": MessageLookupByLibrary.simpleMessage("Add Coupon"),
+        "cartAddNote": MessageLookupByLibrary.simpleMessage("Add Note"),
+        "cartCash": MessageLookupByLibrary.simpleMessage("Cash"),
         "cartCouponApplied":
             MessageLookupByLibrary.simpleMessage("Coupon Applied"),
+        "cartDeliveryAddress":
+            MessageLookupByLibrary.simpleMessage("Delivery Address"),
         "cartDeliveryFee": MessageLookupByLibrary.simpleMessage("Delivery Fee"),
+        "cartEditAddress": MessageLookupByLibrary.simpleMessage("Edit Address"),
         "cartEmptyMessage":
             MessageLookupByLibrary.simpleMessage("Your cart is empty"),
         "cartOrderNow": MessageLookupByLibrary.simpleMessage("Order Now"),
         "cartPaymentSummary":
             MessageLookupByLibrary.simpleMessage("Payment Summary"),
+        "cartPickupAddress":
+            MessageLookupByLibrary.simpleMessage("Pickup Address"),
         "cartPrice": MessageLookupByLibrary.simpleMessage("Price"),
+        "cartSelectAddress":
+            MessageLookupByLibrary.simpleMessage("Select an address"),
         "cartTotal": MessageLookupByLibrary.simpleMessage("Total"),
         "coffee_description": MessageLookupByLibrary.simpleMessage(
             "A cappuccino is a drink of approximately 10% espresso coffee, 32% fresh milk and 56% coffee, we use special beans..."),

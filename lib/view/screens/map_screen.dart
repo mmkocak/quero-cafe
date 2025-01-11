@@ -10,7 +10,6 @@ import 'package:quero_cafe/view/mixins/location_permission_mixin.dart';
 import 'package:quero_cafe/view/widgets/map_bottom_info.dart';
 import 'package:quero_cafe/core/cubit/map/map_cubit.dart';
 
-
 class MapScreen extends StatefulWidget {
   const MapScreen({super.key});
 
@@ -34,8 +33,8 @@ class _MapScreenState extends State<MapScreen> with LocationPermissionMixin {
         if (!mounted) return;
         if (locationData.latitude != null && locationData.longitude != null) {
           context.read<MapCubit>().updateUserLocation(
-            LatLng(locationData.latitude!, locationData.longitude!),
-          );
+                LatLng(locationData.latitude!, locationData.longitude!),
+              );
         }
       });
     }
@@ -59,7 +58,6 @@ class _MapScreenState extends State<MapScreen> with LocationPermissionMixin {
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(14),
-                
                 boxShadow: [
                   BoxShadow(
                     color: Colors.black.withAlpha(25),
@@ -70,7 +68,9 @@ class _MapScreenState extends State<MapScreen> with LocationPermissionMixin {
               ),
               child: IconButton(
                 icon: const Icon(Icons.arrow_back, color: Colors.black),
-                onPressed: () => context.read<NavigationCubit>().changeIndex(0),
+                onPressed: () {
+                  Navigator.pop(context);
+                },
               ),
             ),
             actions: [
@@ -112,9 +112,11 @@ class _MapScreenState extends State<MapScreen> with LocationPermissionMixin {
                       _mapController.move(state.userLocation!, 15);
                     } else {
                       final locationData = await location.getLocation();
-                      if (locationData.latitude != null && locationData.longitude != null) {
+                      if (locationData.latitude != null &&
+                          locationData.longitude != null) {
                         _mapController.move(
-                          LatLng(locationData.latitude!, locationData.longitude!),
+                          LatLng(
+                              locationData.latitude!, locationData.longitude!),
                           15,
                         );
                       }
@@ -132,12 +134,15 @@ class _MapScreenState extends State<MapScreen> with LocationPermissionMixin {
                   initialCenter: state.cafeLocation,
                   initialZoom: 15,
                   onTap: (_, point) {
-                    context.read<MapCubit>().updateUserLocation(point, isManualSelection: true);
+                    context
+                        .read<MapCubit>()
+                        .updateUserLocation(point, isManualSelection: true);
                   },
                 ),
                 children: [
                   TileLayer(
-                    urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+                    urlTemplate:
+                        'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
                     userAgentPackageName: 'com.example.quero_cafe',
                   ),
                   MarkerLayer(markers: state.markers),

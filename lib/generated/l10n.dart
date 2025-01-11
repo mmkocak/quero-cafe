@@ -519,6 +519,66 @@ class S {
       args: [],
     );
   }
+
+  /// `Delivery Address`
+  String get cartDeliveryAddress {
+    return Intl.message(
+      'Delivery Address',
+      name: 'cartDeliveryAddress',
+      desc: 'Title for delivery address section',
+      args: [],
+    );
+  }
+
+  /// `Pickup Address`
+  String get cartPickupAddress {
+    return Intl.message(
+      'Pickup Address',
+      name: 'cartPickupAddress',
+      desc: 'Title for pickup address section',
+      args: [],
+    );
+  }
+
+  /// `Edit Address`
+  String get cartEditAddress {
+    return Intl.message(
+      'Edit Address',
+      name: 'cartEditAddress',
+      desc: 'Button text for editing address',
+      args: [],
+    );
+  }
+
+  /// `Add Note`
+  String get cartAddNote {
+    return Intl.message(
+      'Add Note',
+      name: 'cartAddNote',
+      desc: 'Button text for adding note',
+      args: [],
+    );
+  }
+
+  /// `Select an address`
+  String get cartSelectAddress {
+    return Intl.message(
+      'Select an address',
+      name: 'cartSelectAddress',
+      desc: 'Placeholder text when no address is selected',
+      args: [],
+    );
+  }
+
+  /// `Cash`
+  String get cartCash {
+    return Intl.message(
+      'Cash',
+      name: 'cartCash',
+      desc: 'Payment method - cash',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -33,16 +33,26 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Tamanhos disponíveis"),
         "cartAddCoupon":
             MessageLookupByLibrary.simpleMessage("Adicionar Cupom"),
+        "cartAddNote": MessageLookupByLibrary.simpleMessage("Adicionar Nota"),
+        "cartCash": MessageLookupByLibrary.simpleMessage("Dinheiro"),
         "cartCouponApplied":
             MessageLookupByLibrary.simpleMessage("Cupom Aplicado"),
+        "cartDeliveryAddress":
+            MessageLookupByLibrary.simpleMessage("Endereço de Entrega"),
         "cartDeliveryFee":
             MessageLookupByLibrary.simpleMessage("Taxa de Entrega"),
+        "cartEditAddress":
+            MessageLookupByLibrary.simpleMessage("Editar Endereço"),
         "cartEmptyMessage":
             MessageLookupByLibrary.simpleMessage("Seu carrinho está vazio"),
-        "cartOrderNow": MessageLookupByLibrary.simpleMessage("Fazer Pedido"),
+        "cartOrderNow": MessageLookupByLibrary.simpleMessage("Pedir Agora"),
         "cartPaymentSummary":
             MessageLookupByLibrary.simpleMessage("Resumo do Pagamento"),
+        "cartPickupAddress":
+            MessageLookupByLibrary.simpleMessage("Endereço de Retirada"),
         "cartPrice": MessageLookupByLibrary.simpleMessage("Preço"),
+        "cartSelectAddress":
+            MessageLookupByLibrary.simpleMessage("Selecione um endereço"),
         "cartTotal": MessageLookupByLibrary.simpleMessage("Total"),
         "coffee_description": MessageLookupByLibrary.simpleMessage(
             "Um cappuccino é uma bebida de aproximadamente, sendo 10% de café expresso e 32% de leite de fresco e 56% de café, utilizamos grãos especiais..."),

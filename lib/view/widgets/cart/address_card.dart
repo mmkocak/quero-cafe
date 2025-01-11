@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:quero_cafe/core/cubit/map/map_cubit.dart';
 import 'package:quero_cafe/view/screens/map_screen.dart';
 import 'package:latlong2/latlong.dart';
+import 'package:quero_cafe/generated/l10n.dart';
 
 class AddressCard extends StatelessWidget {
   final bool isDelivery;
@@ -22,7 +23,7 @@ class AddressCard extends StatelessWidget {
   }
 
   String _formatLocation(LatLng? location) {
-    if (location == null) return 'Selecione um endereço';
+    if (location == null) return S.current.cartSelectAddress;
     return '${location.latitude.toStringAsFixed(6)}, ${location.longitude.toStringAsFixed(6)}';
   }
 
@@ -48,7 +49,9 @@ class AddressCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              isDelivery ? 'Endereço de Entrega' : 'Endereço de Retirada',
+              isDelivery 
+                ? S.of(context).cartDeliveryAddress 
+                : S.of(context).cartPickupAddress,
               style: const TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.w500,
@@ -78,16 +81,16 @@ class AddressCard extends StatelessWidget {
                   child: GestureDetector(
                     onTap: () => _navigateToMap(context),
                     child: Row(
-                      children: const [
-                        Icon(
+                      children: [
+                        const Icon(
                           Icons.edit_location_outlined,
                           size: 20,
                           color: Colors.black,
                         ),
-                        SizedBox(width: 4),
+                        const SizedBox(width: 4),
                         Text(
-                          'Editar Endereço',
-                          style: TextStyle(
+                          S.of(context).cartEditAddress,
+                          style: const TextStyle(
                             color: Colors.black,
                             fontSize: 14,
                           ),
@@ -106,16 +109,16 @@ class AddressCard extends StatelessWidget {
                   child: GestureDetector(
                     onTap: () {},
                     child: Row(
-                      children: const [
-                        Icon(
+                      children: [
+                        const Icon(
                           Icons.note_add_outlined,
                           size: 20,
                           color: Colors.black,
                         ),
-                        SizedBox(width: 4),
+                        const SizedBox(width: 4),
                         Text(
-                          'Adicionar Nota',
-                          style: TextStyle(
+                          S.of(context).cartAddNote,
+                          style: const TextStyle(
                             color: Colors.black,
                             fontSize: 14,
                           ),

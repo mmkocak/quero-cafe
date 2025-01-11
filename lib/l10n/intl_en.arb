@@ -71,5 +71,29 @@
      "cartAddCoupon": "Add Coupon",
      "@cartAddCoupon": {
          "description": "Button text for adding coupon"
+     },
+     "cartDeliveryAddress": "Delivery Address",
+     "@cartDeliveryAddress": {
+         "description": "Title for delivery address section"
+     },
+     "cartPickupAddress": "Pickup Address",
+     "@cartPickupAddress": {
+         "description": "Title for pickup address section"
+     },
+     "cartEditAddress": "Edit Address",
+     "@cartEditAddress": {
+         "description": "Button text for editing address"
+     },
+     "cartAddNote": "Add Note",
+     "@cartAddNote": {
+         "description": "Button text for adding note"
+     },
+     "cartSelectAddress": "Select an address",
+     "@cartSelectAddress": {
+         "description": "Placeholder text when no address is selected"
+     },
+     "cartCash": "Cash",
+     "@cartCash": {
+         "description": "Payment method - cash"
      }
 }

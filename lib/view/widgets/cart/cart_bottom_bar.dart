@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:quero_cafe/core/cubit/cart/cart_cubit.dart';
+import 'package:quero_cafe/generated/l10n.dart';
 
 class CartBottomBar extends StatelessWidget {
   const CartBottomBar({super.key});
@@ -24,21 +25,19 @@ class CartBottomBar extends StatelessWidget {
         children: [
           Row(
             children: [
-              const Icon(Icons.payment, color: Colors.grey),
-              const SizedBox(width: 8),
               Container(
-                padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                 decoration: BoxDecoration(
                   color: const Color(0xFFB17445),
                   borderRadius: BorderRadius.circular(20),
                 ),
-                child: const Row(
+                child: Row(
                   children: [
-                    Icon(Icons.attach_money, color: Colors.white, size: 20),
-                    SizedBox(width: 4),
+                    const Icon(Icons.attach_money, color: Colors.white, size: 20),
+                    const SizedBox(width: 4),
                     Text(
-                      'Cash',
-                      style: TextStyle(color: Colors.white),
+                      S.of(context).cartCash,
+                      style: const TextStyle(color: Colors.white),
                     ),
                   ],
                 ),
@@ -47,9 +46,9 @@ class CartBottomBar extends StatelessWidget {
               BlocBuilder<CartCubit, CartState>(
                 builder: (context, state) {
                   return Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                     decoration: BoxDecoration(
-                      color: Colors.grey[200],
+                      border: Border.all(color: Colors.grey[300]!),
                       borderRadius: BorderRadius.circular(20),
                     ),
                     child: Text(
@@ -73,9 +72,9 @@ class CartBottomBar extends StatelessWidget {
                   borderRadius: BorderRadius.circular(12),
                 ),
               ),
-              child: const Text(
-                'Pedir agora',
-                style: TextStyle(
+              child: Text(
+                S.of(context).cartOrderNow,
+                style: const TextStyle(
                   color: Colors.white,
                   fontSize: 16,
                   fontWeight: FontWeight.w500,
@@ -87,4 +86,4 @@ class CartBottomBar extends StatelessWidget {
       ),
     );
   }
-} 
+}

@@ -54,7 +54,7 @@
   "@cartTotal": {
     "description": "Label for total amount in cart"
   },
-  "cartOrderNow": "Fazer Pedido",
+  "cartOrderNow": "Pedir Agora",
   "@cartOrderNow": {
     "description": "Button text for placing order"
   },
@@ -69,5 +69,29 @@
   "cartAddCoupon": "Adicionar Cupom",
   "@cartAddCoupon": {
     "description": "Button text for adding coupon"
+  },
+  "cartDeliveryAddress": "Endereço de Entrega",
+  "@cartDeliveryAddress": {
+    "description": "Title for delivery address section"
+  },
+  "cartPickupAddress": "Endereço de Retirada",
+  "@cartPickupAddress": {
+    "description": "Title for pickup address section"
+  },
+  "cartEditAddress": "Editar Endereço",
+  "@cartEditAddress": {
+    "description": "Button text for editing address"
+  },
+  "cartAddNote": "Adicionar Nota",
+  "@cartAddNote": {
+    "description": "Button text for adding note"
+  },
+  "cartSelectAddress": "Selecione um endereço",
+  "@cartSelectAddress": {
+    "description": "Placeholder text when no address is selected"
+  },
+  "cartCash": "Dinheiro",
+  "@cartCash": {
+    "description": "Payment method - cash"
   }
 }

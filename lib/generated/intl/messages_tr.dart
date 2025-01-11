@@ -31,16 +31,27 @@ class MessageLookup extends MessageLookupByLibrary {
         "available_sizes":
             MessageLookupByLibrary.simpleMessage("Mevcut boyutlar"),
         "cartAddCoupon": MessageLookupByLibrary.simpleMessage("Kupon Ekle"),
+        "cartAddNote": MessageLookupByLibrary.simpleMessage("Not Ekle"),
+        "cartCash": MessageLookupByLibrary.simpleMessage("Nakit"),
         "cartCouponApplied":
             MessageLookupByLibrary.simpleMessage("Kupon Uygulandı"),
+        "cartDeliveryAddress":
+            MessageLookupByLibrary.simpleMessage("Teslimat Adresi"),
         "cartDeliveryFee":
             MessageLookupByLibrary.simpleMessage("Teslimat Ücreti"),
+        "cartEditAddress":
+            MessageLookupByLibrary.simpleMessage("Adresi Düzenle"),
         "cartEmptyMessage":
             MessageLookupByLibrary.simpleMessage("Sepetiniz boş"),
-        "cartOrderNow": MessageLookupByLibrary.simpleMessage("Sipariş Ver"),
+        "cartOrderNow":
+            MessageLookupByLibrary.simpleMessage("Şimdi Sipariş Ver"),
         "cartPaymentSummary":
             MessageLookupByLibrary.simpleMessage("Ödeme Özeti"),
+        "cartPickupAddress":
+            MessageLookupByLibrary.simpleMessage("Teslim Alma Adresi"),
         "cartPrice": MessageLookupByLibrary.simpleMessage("Fiyat"),
+        "cartSelectAddress":
+            MessageLookupByLibrary.simpleMessage("Bir adres seçin"),
         "cartTotal": MessageLookupByLibrary.simpleMessage("Toplam"),
         "coffee_description": MessageLookupByLibrary.simpleMessage(
             "Cappuccino, yaklaşık %10 espresso kahve, %32 taze süt ve %56 kahveden oluşan, özel çekirdekler kullandığımız bir içecektir..."),

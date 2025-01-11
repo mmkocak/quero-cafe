@@ -54,7 +54,7 @@
   "@cartTotal": {
     "description": "Label for total amount in cart"
   },
-  "cartOrderNow": "Sipariş Ver",
+  "cartOrderNow": "Şimdi Sipariş Ver",
   "@cartOrderNow": {
     "description": "Button text for placing order"
   },
@@ -69,5 +69,29 @@
   "cartAddCoupon": "Kupon Ekle",
   "@cartAddCoupon": {
     "description": "Button text for adding coupon"
+  },
+  "cartDeliveryAddress": "Teslimat Adresi",
+  "@cartDeliveryAddress": {
+    "description": "Title for delivery address section"
+  },
+  "cartPickupAddress": "Teslim Alma Adresi",
+  "@cartPickupAddress": {
+    "description": "Title for pickup address section"
+  },
+  "cartEditAddress": "Adresi Düzenle",
+  "@cartEditAddress": {
+    "description": "Button text for editing address"
+  },
+  "cartAddNote": "Not Ekle",
+  "@cartAddNote": {
+    "description": "Button text for adding note"
+  },
+  "cartSelectAddress": "Bir adres seçin",
+  "@cartSelectAddress": {
+    "description": "Placeholder text when no address is selected"
+  },
+  "cartCash": "Nakit",
+  "@cartCash": {
+    "description": "Payment method - cash"
   }
 }
