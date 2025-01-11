@@ -10,8 +10,6 @@ class PaymentSummary extends StatelessWidget with CartPaymentMixin {
   Widget build(BuildContext context) {
     return BlocBuilder<CartCubit, CartState>(
       builder: (context, state) {
-        final cartCubit = context.read<CartCubit>();
-        
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -23,17 +21,20 @@ class PaymentSummary extends StatelessWidget with CartPaymentMixin {
               ),
             ),
             const SizedBox(height: 12),
-            buildPaymentRow('Preço', 'R\$ ${cartCubit.totalPrice.toStringAsFixed(2)}'),
+            buildPaymentRow(
+              'Preço',
+              '\$ ${state.totalPrice.toStringAsFixed(2)}'
+            ),
             const SizedBox(height: 8),
             buildPaymentRow(
               'Valor da entrega',
-              'R\$ ${cartCubit.deliveryFee.toStringAsFixed(2)}',
-              originalPrice: 'R\$ ${cartCubit.originalDeliveryFee.toStringAsFixed(2)}',
+              '\$ ${state.deliveryFee.toStringAsFixed(2)}',
+              originalPrice: '\$ ${context.read<CartCubit>().originalDeliveryFee.toStringAsFixed(2)}',
             ),
             const SizedBox(height: 8),
             buildPaymentRow(
               'Total',
-              'R\$ ${cartCubit.finalTotal.toStringAsFixed(2)}',
+              '\$ ${state.finalTotal.toStringAsFixed(2)}',
               isBold: true
             ),
           ],
@@ -41,4 +42,4 @@ class PaymentSummary extends StatelessWidget with CartPaymentMixin {
       },
     );
   }
-} 
+}

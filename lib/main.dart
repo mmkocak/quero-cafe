@@ -13,6 +13,7 @@ import 'package:quero_cafe/view/mixins/build_initial_screen.dart';
 import 'package:quero_cafe/core/cubit/map/map_cubit.dart';
 import 'package:quero_cafe/core/cubit/cart/cart_cubit.dart';
 import 'package:quero_cafe/core/cubit/coffee_size/coffee_size_cubit.dart';
+import 'package:quero_cafe/core/cubit/delivery/delivery_cubit.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -20,7 +21,7 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  
+
   final authCubit = AuthenticationCubit();
 
   SystemChrome.setPreferredOrientations([
@@ -35,6 +36,7 @@ void main() async {
         BlocProvider(create: (context) => MapCubit()),
         BlocProvider(create: (context) => CartCubit()),
         BlocProvider(create: (context) => CoffeeSizeCubit()),
+        BlocProvider(create: (context) => DeliveryCubit()),
       ],
       child: MyApp(),
     ));
@@ -43,7 +45,7 @@ void main() async {
 
 class MyApp extends StatelessWidget {
   final _buildInitialScreen = BuildInitialScreen();
-   MyApp({super.key});
+  MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
