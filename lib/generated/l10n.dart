@@ -439,6 +439,86 @@ class S {
       args: [],
     );
   }
+
+  /// `Payment Summary`
+  String get cartPaymentSummary {
+    return Intl.message(
+      'Payment Summary',
+      name: 'cartPaymentSummary',
+      desc: 'Title of the payment summary section in cart',
+      args: [],
+    );
+  }
+
+  /// `Price`
+  String get cartPrice {
+    return Intl.message(
+      'Price',
+      name: 'cartPrice',
+      desc: 'Label for price in cart',
+      args: [],
+    );
+  }
+
+  /// `Delivery Fee`
+  String get cartDeliveryFee {
+    return Intl.message(
+      'Delivery Fee',
+      name: 'cartDeliveryFee',
+      desc: 'Label for delivery fee in cart',
+      args: [],
+    );
+  }
+
+  /// `Total`
+  String get cartTotal {
+    return Intl.message(
+      'Total',
+      name: 'cartTotal',
+      desc: 'Label for total amount in cart',
+      args: [],
+    );
+  }
+
+  /// `Order Now`
+  String get cartOrderNow {
+    return Intl.message(
+      'Order Now',
+      name: 'cartOrderNow',
+      desc: 'Button text for placing order',
+      args: [],
+    );
+  }
+
+  /// `Your cart is empty`
+  String get cartEmptyMessage {
+    return Intl.message(
+      'Your cart is empty',
+      name: 'cartEmptyMessage',
+      desc: 'Message shown when cart is empty',
+      args: [],
+    );
+  }
+
+  /// `Coupon Applied`
+  String get cartCouponApplied {
+    return Intl.message(
+      'Coupon Applied',
+      name: 'cartCouponApplied',
+      desc: 'Label for applied coupon',
+      args: [],
+    );
+  }
+
+  /// `Add Coupon`
+  String get cartAddCoupon {
+    return Intl.message(
+      'Add Coupon',
+      name: 'cartAddCoupon',
+      desc: 'Button text for adding coupon',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -4,10 +4,11 @@ import 'package:quero_cafe/core/cubit/cart/cart_cubit.dart';
 import 'package:quero_cafe/core/cubit/delivery/delivery_cubit.dart';
 import 'package:quero_cafe/view/widgets/cart/cart_header.dart';
 import 'package:quero_cafe/view/widgets/cart/address_card.dart';
+import 'package:quero_cafe/view/widgets/cart/coupon_section.dart';
 import 'package:quero_cafe/view/widgets/cart/product_card.dart';
 import 'package:quero_cafe/view/widgets/cart/payment_summary.dart';
-import 'package:quero_cafe/view/widgets/cart/coupon_section.dart';
 import 'package:quero_cafe/view/widgets/cart/cart_bottom_bar.dart';
+import 'package:quero_cafe/generated/l10n.dart';
 
 class CartScreen extends StatelessWidget {
   const CartScreen({super.key});
@@ -27,8 +28,9 @@ class CartScreen extends StatelessWidget {
                       children: [
                         CartHeader(
                           isDelivery: deliveryState.isDelivery,
-                          onDeliveryChanged: (value) => 
-                            context.read<DeliveryCubit>().toggleDelivery(value),
+                          onDeliveryChanged: (value) => context
+                              .read<DeliveryCubit>()
+                              .toggleDelivery(value),
                         ),
                         AddressCard(isDelivery: deliveryState.isDelivery),
                         Expanded(
@@ -55,8 +57,7 @@ class CartScreen extends StatelessWidget {
                                         const Divider(),
                                     itemBuilder: (context, index) {
                                       return ProductCard(
-                                        item: cartState.items[index]
-                                      );
+                                          item: cartState.items[index]);
                                     },
                                   ),
                                 ),

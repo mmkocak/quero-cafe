@@ -30,6 +30,17 @@ class MessageLookup extends MessageLookupByLibrary {
         "add_to_cart": MessageLookupByLibrary.simpleMessage("Add to cart"),
         "available_sizes":
             MessageLookupByLibrary.simpleMessage("Available sizes"),
+        "cartAddCoupon": MessageLookupByLibrary.simpleMessage("Add Coupon"),
+        "cartCouponApplied":
+            MessageLookupByLibrary.simpleMessage("Coupon Applied"),
+        "cartDeliveryFee": MessageLookupByLibrary.simpleMessage("Delivery Fee"),
+        "cartEmptyMessage":
+            MessageLookupByLibrary.simpleMessage("Your cart is empty"),
+        "cartOrderNow": MessageLookupByLibrary.simpleMessage("Order Now"),
+        "cartPaymentSummary":
+            MessageLookupByLibrary.simpleMessage("Payment Summary"),
+        "cartPrice": MessageLookupByLibrary.simpleMessage("Price"),
+        "cartTotal": MessageLookupByLibrary.simpleMessage("Total"),
         "coffee_description": MessageLookupByLibrary.simpleMessage(
             "A cappuccino is a drink of approximately 10% espresso coffee, 32% fresh milk and 56% coffee, we use special beans..."),
         "description": MessageLookupByLibrary.simpleMessage("Description"),

@@ -37,5 +37,37 @@
   "add_to_cart": "Sepete ekle",
   "small": "Küçük",
   "medium": "Orta",
-  "large": "Büyük"
+  "large": "Büyük",
+  "cartPaymentSummary": "Ödeme Özeti",
+  "@cartPaymentSummary": {
+    "description": "Title of the payment summary section in cart"
+  },
+  "cartPrice": "Fiyat",
+  "@cartPrice": {
+    "description": "Label for price in cart"
+  },
+  "cartDeliveryFee": "Teslimat Ücreti",
+  "@cartDeliveryFee": {
+    "description": "Label for delivery fee in cart"
+  },
+  "cartTotal": "Toplam",
+  "@cartTotal": {
+    "description": "Label for total amount in cart"
+  },
+  "cartOrderNow": "Sipariş Ver",
+  "@cartOrderNow": {
+    "description": "Button text for placing order"
+  },
+  "cartEmptyMessage": "Sepetiniz boş",
+  "@cartEmptyMessage": {
+    "description": "Message shown when cart is empty"
+  },
+  "cartCouponApplied": "Kupon Uygulandı",
+  "@cartCouponApplied": {
+    "description": "Label for applied coupon"
+  },
+  "cartAddCoupon": "Kupon Ekle",
+  "@cartAddCoupon": {
+    "description": "Button text for adding coupon"
+  }
 }

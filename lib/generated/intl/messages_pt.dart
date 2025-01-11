@@ -31,6 +31,19 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Adicionar no carrinho"),
         "available_sizes":
             MessageLookupByLibrary.simpleMessage("Tamanhos disponíveis"),
+        "cartAddCoupon":
+            MessageLookupByLibrary.simpleMessage("Adicionar Cupom"),
+        "cartCouponApplied":
+            MessageLookupByLibrary.simpleMessage("Cupom Aplicado"),
+        "cartDeliveryFee":
+            MessageLookupByLibrary.simpleMessage("Taxa de Entrega"),
+        "cartEmptyMessage":
+            MessageLookupByLibrary.simpleMessage("Seu carrinho está vazio"),
+        "cartOrderNow": MessageLookupByLibrary.simpleMessage("Fazer Pedido"),
+        "cartPaymentSummary":
+            MessageLookupByLibrary.simpleMessage("Resumo do Pagamento"),
+        "cartPrice": MessageLookupByLibrary.simpleMessage("Preço"),
+        "cartTotal": MessageLookupByLibrary.simpleMessage("Total"),
         "coffee_description": MessageLookupByLibrary.simpleMessage(
             "Um cappuccino é uma bebida de aproximadamente, sendo 10% de café expresso e 32% de leite de fresco e 56% de café, utilizamos grãos especiais..."),
         "description": MessageLookupByLibrary.simpleMessage("Descrição"),

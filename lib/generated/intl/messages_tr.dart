@@ -30,6 +30,18 @@ class MessageLookup extends MessageLookupByLibrary {
         "add_to_cart": MessageLookupByLibrary.simpleMessage("Sepete ekle"),
         "available_sizes":
             MessageLookupByLibrary.simpleMessage("Mevcut boyutlar"),
+        "cartAddCoupon": MessageLookupByLibrary.simpleMessage("Kupon Ekle"),
+        "cartCouponApplied":
+            MessageLookupByLibrary.simpleMessage("Kupon Uygulandı"),
+        "cartDeliveryFee":
+            MessageLookupByLibrary.simpleMessage("Teslimat Ücreti"),
+        "cartEmptyMessage":
+            MessageLookupByLibrary.simpleMessage("Sepetiniz boş"),
+        "cartOrderNow": MessageLookupByLibrary.simpleMessage("Sipariş Ver"),
+        "cartPaymentSummary":
+            MessageLookupByLibrary.simpleMessage("Ödeme Özeti"),
+        "cartPrice": MessageLookupByLibrary.simpleMessage("Fiyat"),
+        "cartTotal": MessageLookupByLibrary.simpleMessage("Toplam"),
         "coffee_description": MessageLookupByLibrary.simpleMessage(
             "Cappuccino, yaklaşık %10 espresso kahve, %32 taze süt ve %56 kahveden oluşan, özel çekirdekler kullandığımız bir içecektir..."),
         "description": MessageLookupByLibrary.simpleMessage("Açıklama"),

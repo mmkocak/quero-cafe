@@ -37,5 +37,39 @@
      "add_to_cart": "Add to cart",
      "small": "Small",
      "medium": "Medium",
-     "large": "Large"
+     "large": "Large",
+     "@@locale": "en",
+     "@_CART_SCREEN": {},
+     "cartPaymentSummary": "Payment Summary",
+     "@cartPaymentSummary": {
+         "description": "Title of the payment summary section in cart"
+     },
+     "cartPrice": "Price",
+     "@cartPrice": {
+         "description": "Label for price in cart"
+     },
+     "cartDeliveryFee": "Delivery Fee",
+     "@cartDeliveryFee": {
+         "description": "Label for delivery fee in cart"
+     },
+     "cartTotal": "Total",
+     "@cartTotal": {
+         "description": "Label for total amount in cart"
+     },
+     "cartOrderNow": "Order Now",
+     "@cartOrderNow": {
+         "description": "Button text for placing order"
+     },
+     "cartEmptyMessage": "Your cart is empty",
+     "@cartEmptyMessage": {
+         "description": "Message shown when cart is empty"
+     },
+     "cartCouponApplied": "Coupon Applied",
+     "@cartCouponApplied": {
+         "description": "Label for applied coupon"
+     },
+     "cartAddCoupon": "Add Coupon",
+     "@cartAddCoupon": {
+         "description": "Button text for adding coupon"
+     }
 }
