@@ -2,13 +2,23 @@ import 'package:flutter/material.dart';
 import 'package:quero_cafe/generated/l10n.dart';
 import 'package:quero_cafe/core/cubit/coffee_size/coffee_size_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:quero_cafe/core/cubit/cart/cart_cubit.dart';
+import 'package:quero_cafe/core/models/cart_item.dart';
 
 class CoffeeDetailBottomBar extends StatelessWidget {
   final double price;
+  final String name;
+  final String description;
+  final String imageUrl;
+  final String size;
 
   const CoffeeDetailBottomBar({
     super.key,
     required this.price,
+    required this.name,
+    required this.description,
+    required this.imageUrl,
+    required this.size,
   });
 
   @override
@@ -70,7 +80,19 @@ class CoffeeDetailBottomBar extends StatelessWidget {
               ),
               const Spacer(),
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  context.read<CartCubit>().addToCart(CartItem(
+                    id: '${name}_$size',
+                    name: name,
+                    description: description,
+                    price: price,
+                    imageUrl: imageUrl,
+                    size: size,
+                  ));
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(content: Text('Ürün sepete eklendi')),
+                  );
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0xFFB17445),
                   padding: EdgeInsets.symmetric(

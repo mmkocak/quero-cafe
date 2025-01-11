@@ -11,6 +11,8 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:quero_cafe/core/cubit/navigation/navigation_cubit.dart';
 import 'package:quero_cafe/view/mixins/build_initial_screen.dart';
 import 'package:quero_cafe/core/cubit/map/map_cubit.dart';
+import 'package:quero_cafe/core/cubit/cart/cart_cubit.dart';
+import 'package:quero_cafe/core/cubit/coffee_size/coffee_size_cubit.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -31,6 +33,8 @@ void main() async {
         BlocProvider.value(value: authCubit),
         BlocProvider(create: (context) => NavigationCubit()),
         BlocProvider(create: (context) => MapCubit()),
+        BlocProvider(create: (context) => CartCubit()),
+        BlocProvider(create: (context) => CoffeeSizeCubit()),
       ],
       child: MyApp(),
     ));

@@ -1,47 +1,66 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:quero_cafe/core/cubit/cart/cart_cubit.dart';
+import 'package:quero_cafe/core/models/cart_item.dart';
 
 class ProductCard extends StatelessWidget {
-  final int quantity;
-  final Function() onIncrease;
-  final Function() onDecrease;
+  final CartItem item;
 
   const ProductCard({
     super.key,
-    required this.quantity,
-    required this.onIncrease,
-    required this.onDecrease,
+    required this.item,
   });
+
+  String _getSizeText(String? size) {
+    if (size == null) return 'Pequeno';
+    
+    switch (size) {
+      case 'P': return 'Pequeno';
+      case 'M': return 'Médio';
+      case 'G': return 'Grande';
+      default: return 'Pequeno';
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         ClipRRect(
           borderRadius: BorderRadius.circular(8),
           child: Image.asset(
-            'assets/images/cuppucino.png',
+            item.imageUrl,
             width: 48,
             height: 48,
             fit: BoxFit.cover,
           ),
         ),
         const SizedBox(width: 12),
-        const Expanded(
+        Expanded(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Cappucino',
-                style: TextStyle(
+                item.name,
+                style: const TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.w500,
                 ),
               ),
               Text(
-                'com Chocolate',
-                style: TextStyle(
+                item.description,
+                style: const TextStyle(
                   color: Colors.grey,
                   fontSize: 14,
+                ),
+              ),
+              const SizedBox(height: 4),
+              Text(
+                'R\$ ${item.price.toStringAsFixed(2)} • ${_getSizeText(item.size)}',
+                style: TextStyle(
+                  color: Colors.grey[600],
+                  fontSize: 12,
                 ),
               ),
             ],
@@ -50,17 +69,17 @@ class ProductCard extends StatelessWidget {
         Row(
           children: [
             IconButton(
-              onPressed: onDecrease,
+              onPressed: () => context.read<CartCubit>().decrementQuantity(item.id),
               icon: const Icon(Icons.remove),
               color: const Color(0xFFB17445),
               padding: EdgeInsets.zero,
             ),
             Text(
-              quantity.toString(),
+              item.quantity.toString(),
               style: const TextStyle(fontSize: 16),
             ),
             IconButton(
-              onPressed: onIncrease,
+              onPressed: () => context.read<CartCubit>().incrementQuantity(item.id),
               icon: const Icon(Icons.add),
               color: const Color(0xFFB17445),
               padding: EdgeInsets.zero,
