@@ -1,16 +1,27 @@
-# quero_cafe
+# quero_cafe Mobile Application
 
-Quero Cafe uygulaması
 
-## Getting Started
+## Tech
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+- Bloc
+- intl_util(Localization)
+- Clean Architecture
+- Flutter
+- Node.js
+- Location
+- Firebase/Firestore
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Screenshot
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+<img src="ss/Screenshot_1736778217.png" alt="1. Resim" width="400"/>
+<img src="ss/Screenshot_1736776116.png" alt="2. Resim" width="400"/>
+<img src="ss/Screenshot_1736779156.png" alt="3. Resim" width="400"/>
+
+<img src="ss/Screenshot_1736780070.png" alt="4. Resim" width="400"/>
+<img src="ss/Screenshot_1736780079.png" alt="5. Resim" width="400"/>
+<img src="ss/Screenshot_1736780105.png" alt="6. Resim" width="400"/>
+
+<img src="ss/Screenshot_1736780114.png" alt="7. Resim" width="400"/>
+<img src="ss/Screenshot_1736780121.png" alt="8. Resim" width="400"/>
