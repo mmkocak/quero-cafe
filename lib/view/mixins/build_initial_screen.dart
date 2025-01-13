@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:quero_cafe/core/routes/app_router.dart';
 import 'package:quero_cafe/core/cubit/authentication/authentication_cubit.dart';
-import 'package:quero_cafe/view/login/login_screen.dart';
-import 'package:quero_cafe/view/widgets/custom_bottom_nav_bar.dart';
-import 'package:quero_cafe/view/splash/splash_screen.dart';
 
 class BuildInitialScreen {
-  Widget buildInitialScreen(AuthState authState) {
+  String getInitialRoute(AuthState authState) {
     if (authState is AuthLoading) {
-      return const SplashScreen();
+      return AppRouter.splash; // Splash ekranı (yükleniyor)
     } else if (authState is AuthSuccess) {
-      return const CustomBottomNavBar();
+      return AppRouter.home; // Kullanıcı giriş yapmışsa ana sayfa
+    } else if (authState is AuthLoggedOut || authState is AuthInitial) {
+      return AppRouter.login; // Kullanıcı giriş yapmamışsa login
     } else {
-      return const LoginScreen();
+      return AppRouter.splash; // Varsayılan olarak Splash ekranı
     }
   }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:quero_cafe/core/routes/app_router.dart';
 import 'package:quero_cafe/presentation/bloc/location/location_bloc.dart';
 import 'injection_container.dart' as di;
 import 'package:firebase_core/firebase_core.dart';
@@ -58,6 +59,8 @@ class MyApp extends StatelessWidget {
         return BlocBuilder<LocaleCubit, LocaleState>(
           builder: (context, state) {
             return MaterialApp(
+              onGenerateRoute: AppRouter.onGenerateRoute,
+              initialRoute: _buildInitialScreen.getInitialRoute(authState),
               debugShowCheckedModeBanner: false,
               locale: state.locale,
               localizationsDelegates: [
@@ -73,7 +76,6 @@ class MyApp extends StatelessWidget {
                     ColorScheme.fromSeed(seedColor: const Color(0xFFB17445)),
                 useMaterial3: true,
               ),
-              home: _buildInitialScreen.buildInitialScreen(authState),
             );
           },
         );
